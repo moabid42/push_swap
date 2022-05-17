@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/14 13:28:41 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/17 17:26:38 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_stack	*ft_create_stack(int *tab, int count)
 	return (curr);
 }
 
-int *parsing(t_data *data, char **argv, int argc)
+int parsing(t_data *data, char **argv, int argc)
 {
 	int		i;
 	int 	*tab;
@@ -61,10 +61,13 @@ int *parsing(t_data *data, char **argv, int argc)
 	while(i < argc)
 	{
 		tab[i - 1] = ft_atoi(argv[i]);
-		// if (!(tab[i - 1] >= 0 && tab[i - 1] <= 9))
-		// 	return (FALSE);
+		printf("The number[%d] = %d\n", i,tab[i - 1]);
+		if (tab[i - 1] <= 0 && tab[i - 1] <= 9)
+			return (FALSE);
 		i++;
 	}
-	// data->aveg = average(argc - 1, tab);
-	return (tab);
+	data->argc = argc - 1;
+	data->tab  = tab;
+	data->aveg = average(argc - 1, tab);
+	return (TRUE);
 }

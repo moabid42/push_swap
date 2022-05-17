@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/14 13:25:49 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/14 13:53:15 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct 		s_stacks
 }					t_stacks;
 
 void	ft_error();
-int 	*parsing(t_data *data, char **argv, int argc);
+int 	parsing(t_data *data, char **argv, int argc);
 void	printer(t_stack *head);
 t_stack	*new_node(char *argv);
 void	*ft_malloc(size_t size);

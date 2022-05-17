@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:50 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/14 13:33:03 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/17 17:22:20 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int main(int argc, char **argv)
 		ft_error();
 	data = (t_data *)ft_malloc(sizeof(t_data));
 	stacks = (t_stacks *)ft_malloc(sizeof(t_stacks));
-	// if (parsing(data, argv, argc))
-	// 	ft_error();
-	data->argc = argc;
-	data->tab = parsing(data, argv, argc);
+	if (!parsing(data, argv, argc))
+		ft_error();
+	// data->argc = argc;
+	// data->tab = parsing(data, argv, argc);
 	ft_init_stacks(data, stacks);
-	// printer(stacks->b);
-	// printer(stacks->a);
+	printer(stacks->b);
+	printer(stacks->a);
 	ft_sa(&stacks->a, -42);
 	printer(stacks->b);
 	printer(stacks->a);
