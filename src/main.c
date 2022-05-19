@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:50 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/17 17:22:20 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/19 00:39:33 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,38 +24,51 @@ int main(int argc, char **argv)
 	stacks = (t_stacks *)ft_malloc(sizeof(t_stacks));
 	if (!parsing(data, argv, argc))
 		ft_error();
-	// data->argc = argc;
-	// data->tab = parsing(data, argv, argc);
 	ft_init_stacks(data, stacks);
-	printer(stacks->b);
+
+	printf("The unsorted array is :\n");
+	printtab(data->tab, data->argc);
+	
+	quickSort(data->tab, 0, data->argc - 1);
+	data->mid = data->tab[data->argc / 2];
+
+	printf("The sorted array is :\n");
+	printtab(data->tab, data->argc);
+	// printf("The average is : %d\n", data->mid);
+	// ft_sa(&stacks->a, -42);
+	// // printer(stacks->b);
+	// // printer(stacks->a);
+	// ft_pb(stacks);
+	// // printer(stacks->b);
+	// // printer(stacks->a);
+	// ft_pb(stacks);
+	// // printer(stacks->b);
+	// // printer(stacks->a);
+	// ft_pb(stacks);
+	// // printer(stacks->b);
+	// // printer(stacks->a);
+	// ft_pa(stacks);
+	// // printer(stacks->b);
+	// // printer(stacks->a);
+	// ft_sb(&stacks->b, -42);
+	// // printer(stacks->b);
+	// // printer(stacks->a);
+	// ft_ra(&stacks->a, -42);
+	// // printer(stacks->b);
+	// // printer(stacks->a);
+	// ft_rra(&stacks->a, -42);
+	// // printer(stacks->b);
+	// // printer(stacks->a);
+	// ft_rrb(&stacks->b, -42);
+	printf("The stack a contains :\n-|");
 	printer(stacks->a);
-	ft_sa(&stacks->a, -42);
+	printf("The stack b contains :\n-|");
 	printer(stacks->b);
+
+	solve(data, stacks);
+	
+	printf("The stack a contains :\n-|");
 	printer(stacks->a);
-	ft_pb(stacks);
+	printf("The stack b contains :\n-|");
 	printer(stacks->b);
-	printer(stacks->a);
-	ft_pb(stacks);
-	printer(stacks->b);
-	printer(stacks->a);
-	ft_pb(stacks);
-	printer(stacks->b);
-	printer(stacks->a);
-	ft_pa(stacks);
-	printer(stacks->b);
-	printer(stacks->a);
-	ft_sb(&stacks->b, -42);
-	printer(stacks->b);
-	printer(stacks->a);
-	ft_ra(&stacks->a, -42);
-	printer(stacks->b);
-	printer(stacks->a);
-	ft_rra(&stacks->a, -42);
-	printer(stacks->b);
-	printer(stacks->a);
-	ft_rrb(&stacks->b, -42);
-	printer(stacks->b);
-	printer(stacks->a);
-	// if (solve(data, stacks))
-	// 	error();
 }

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/17 17:26:38 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/18 14:51:07 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int parsing(t_data *data, char **argv, int argc)
 		i++;
 	}
 	data->argc = argc - 1;
-	data->tab  = tab;
-	data->aveg = average(argc - 1, tab);
+	printf("The count is : %d\n", data-> argc);
+	data->tab = tab;
 	return (TRUE);
 }

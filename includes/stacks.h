@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/14 13:53:15 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/18 22:54:46 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct		s_data
 {
 	int				*tab;
 	int				argc;
-	int				aveg;
+	int				mid;
 }					t_data;
 
 typedef struct 		s_stacks
@@ -76,7 +76,16 @@ void	ft_rrr(t_stacks *stack);
 //	  Algorithm		 //
 ///////////////////////
 
-int	solve(t_data *data, t_stacks *stack);
+void	quickSort(int *tab, int low, int high);
+int		partition(int tab[], int low, int high);
+void	printtab(int tab[], int size);
+void	swap(int *a, int *b);
+void	solve(t_data *data, t_stacks *stacks);
+void	push_b_to_a(int num, t_stacks *stacks);
+void	push_a_to_b(int num, t_stacks *stacks);
+void	sorting_b(int elements, t_stacks *stacks, t_data *data);
+void	sorting_a(int elements, t_stacks *stacks, t_data *data);
+
 
 
 #endif

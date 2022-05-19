@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:24:33 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/14 13:20:17 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/18 22:44:31 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_ss(t_stacks *stack)
 	ft_sb(&stack->b, 42);
 }
 ///////////Push///////////
-void	ft_pb(t_stacks *stacks)
+void	ft_pb(t_stacks *stacks) // push to b
 {
 	t_stack	*buff;
 
@@ -56,7 +56,7 @@ void	ft_pb(t_stacks *stacks)
 	write(1, "pb\n", 3);
 }
 
-void	ft_pa(t_stacks *stacks)
+void	ft_pa(t_stacks *stacks) // push to a
 {
 	t_stack	*buff;
 
@@ -95,7 +95,7 @@ void	ft_rb(t_stack **b, int id)
 	buff->next = NULL;
 	ft_insert_back(b, buff);
 	if (id == -42)
-		write(1, "ra\n", 3);
+		write(1, "rb\n", 3);
 }
 
 void	ft_rr(t_stacks *stack)

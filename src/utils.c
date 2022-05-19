@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/14 13:13:43 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/19 00:44:19 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ void	*ft_malloc(size_t size)
 void	printer(t_stack *head)
 {
 	t_stack *tmp;
+	int i;
 
 	tmp = head;
+	i = 0;
 	while (tmp)
 	{
-		printf("%d -> ", tmp->value);
+		printf("%d : [%d] -> ", tmp->value, i++);
 		tmp = tmp->next;	
 	}
 	printf("\n");
@@ -82,6 +84,15 @@ void	ft_error()
 	exit(1);
 }
 
+void	swap(int *a, int *b)
+{
+	int t;
+
+	t = *a;
+	*a = *b;
+	*b = t;
+}
+
 int	average(int num, int *tab)
 {
 	int i;
@@ -95,4 +106,18 @@ int	average(int num, int *tab)
 		i++;
 	}
 	return (sum / num);
+}
+
+// function to print tab elements
+void	printtab(int tab[], int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+    	printf("%d  ", tab[i]);
+		i++;
+	}
+	printf("\n");
 }
