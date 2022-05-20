@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:44:48 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/19 13:35:01 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/20 16:05:42 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	solve(t_data *data, t_stacks *stacks)
 {
 	int i;
+	int j;
 
 	i = 0;
+	j = 42;
 	while (i < data->argc)
 	{
 		if (stacks->a->value < data->mid)
@@ -25,17 +27,18 @@ void	solve(t_data *data, t_stacks *stacks)
 			ft_ra(&stacks->a, -42);
 		i++;
 	}
-	printf("* The stack a contains :\n-|");
-	printer(stacks->a);
-	printf("* The stack b contains :\n-|");
-	printer(stacks->b);
+	// printf("* The stack a contains :\n-|");
+	// printer(stacks->a);
+	// printf("* The stack b contains :\n-|");
+	// printer(stacks->b);
 	
-	sorting_b(data->argc / 2, stacks, data);
+	// printf("Max = [%d] {} Min = [%d]\n", data->max ,data->min);
+	sorting_b(data->max, data->min, stacks, data);
 
-	printf("~ The stack a contains :\n-|");
-	printer(stacks->a);
-	printf("~ The stack b contains :\n-|");
-	printer(stacks->b);
+	// printf("~ The stack a contains :\n-|");
+	// printer(stacks->a);
+	// printf("~ The stack b contains :\n-|");
+	// printer(stacks->b);
 	
 	// sorting_a(data->argc / 2, stacks, data);
 		
@@ -43,79 +46,92 @@ void	solve(t_data *data, t_stacks *stacks)
 	// printer(stacks->a);
 	// printf("The stack b contains :\n-|");
 	// printer(stacks->b);
-	push_b_to_a(data->argc / 2, stacks);
+	push_b_to_a(data, stacks);
 }
 
-void	sorting_b(int elements, t_stacks *stacks, t_data *data)
+void	sorting_b(int max, int min, t_stacks *stacks, t_data *data)
 {
 	int mid;
 	int i;
-
-	mid = data->tab[elements / 2];
+	int j;
+	
+	mid = (min + max) / 2;
+	printf("Max = [%d] {} Min = [%d] {} mid = [%d]\n", max ,min, mid);
+	printf("\n <->The stack a contains :\n\n-|");
+	printer(stacks->a);
+	printf("\n <->The stack b contains :\n\n-|");
+	printer(stacks->b);
 	i = 0;
-	while (i < elements / 2)
+	j = 0;
+	if (min >= max - 2)
 	{
-		if (stacks->a->value >= mid)
+		if (stacks->b->value < stacks->b->next->value)
+		{
+			printf("0\n");
+			ft_sb(&stacks->b, -42);
+		}			
+		return ;
+	}
+	while (i < max - min)
+	{
+		if (stacks->b->value >= mid)
 			ft_pa(stacks);
 		else
-			ft_rb(&stacks->a, -42);
+		{
+			ft_rb(&stacks->b, -42);
+			j++;
+		}
 		i++;
 	}
-	if (elements < 1)
-		return ;
-	// printf(" ->The stack a contains :\n-|");
-	// printer(stacks->a);
-	// printf(" ->The stack b contains :\n-|");
-	// printer(stacks->b);
-	push_a_to_b(elements / 2, stacks);
-	sorting_b(elements / 2, stacks, data);
+	
+	printf("\n <->The stack a contains :\n\n-|");
+	printer(stacks->a);
+	printf("\n <->The stack b contains :\n\n-|");
+	printer(stacks->b);
+	
+	sortLower(j, stacks, data);
+
+	push_a_to_b(data, stacks);
+	
+	printf("\n <->The stack a contains :\n\n-|");
+	printer(stacks->a);
+	printf("\n <->The stack b contains :\n\n-|");
+	printer(stacks->b);
+	
+	sorting_b(max, min + ((max - min) / 2), stacks, data);
 }
 
-void	sorting_a(int elements, t_stacks *stacks, t_data *data)
-{
-	int mid;
-	int i;
 
-	mid = data->tab[elements + (elements / 2)];
-	// printf("The index of mid is : %d\n", elements + (elements / 2));
-	i = 0;
-	while (i < elements / 2)
-	{
-		if (stacks->b->value < mid)
-			ft_pb(stacks);
-		else
-			ft_ra(&stacks->b, -42);
-		i++;
-	}
-	if (elements > 1)
-		return ;
-	push_b_to_a(elements / 2, stacks);
-	sorting_a(elements + (elements / 2), stacks, data);
+// void	sorting_b(int max, int min, t_stacks *stacks, t_data *data)
+// {
+	
+// }
+
+void	sortLower(int j, t_stacks *stacks, t_data *data)
+{
+	if (j == data->argc / 4)
+		sort();
+	else
+		while (j--)
+			ft_rrb(&stacks->b, -42);
 }
 
-void	push_b_to_a(int num, t_stacks *stacks)
+void	push_b_to_a(t_data *data, t_stacks *stacks)
 {
 	int i;
 
 	i = 0;
-	while (i < num)
+	while (i < ((data->argc / 2) - stacks->a_count))
 	{
 		ft_pa(stacks);
-		printf("[%d]\n", i);
 		i++;
 	}
 }
 
-void	push_a_to_b(int num, t_stacks *stacks)
+void	push_a_to_b(t_data *data, t_stacks *stacks)
 {
-	int i;
-
-	i = 0;
-	while (i < num)
-	{
+	while (((data->argc / 2) - stacks->b_count))
 		ft_pb(stacks);
-		i++;
-	}
 }
 
 

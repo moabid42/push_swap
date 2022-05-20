@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/19 00:44:19 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/20 12:45:29 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	printer(t_stack *head)
 	i = 0;
 	while (tmp)
 	{
-		printf("%d : [%d] -> ", tmp->value, i++);
+		printf("[%d : %d] -> ", tmp->value, i++);
 		tmp = tmp->next;	
 	}
 	printf("\n");
@@ -120,4 +120,40 @@ void	printtab(int tab[], int size)
 		i++;
 	}
 	printf("\n");
+}
+
+int *copyArray(int *arr, int size)
+{
+	int i;
+	int *copy;
+	
+	i = 0;
+	copy = ft_malloc(sizeof(int) * size);
+	while (i < size)
+	{
+		copy[i] = arr[i];
+		i++;
+	}
+	return (copy);
+}
+
+void	indexArray(int *tab, int *indexarr, int num)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < num)
+	{
+		j = 0;
+		while (j < num)
+		{
+			if (indexarr[i] == tab[j])
+			{
+				indexarr[i] = j; 
+			}
+			j++;
+		}
+		i++;
+	}
 }

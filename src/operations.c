@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:24:33 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/18 22:44:31 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/20 12:15:40 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	ft_pb(t_stacks *stacks) // push to b
 {
 	t_stack	*buff;
 
+	stacks->a_count--;
+	stacks->b_count++;
 	buff = stacks->a;
 	stacks->a = stacks->a->next;
 	buff->next = stacks->b;
@@ -60,6 +62,8 @@ void	ft_pa(t_stacks *stacks) // push to a
 {
 	t_stack	*buff;
 
+	stacks->b_count--;
+	stacks->a_count++;
 	buff = stacks->b;
 	stacks->b = stacks->b->next;
 	buff->next = stacks->a;

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/18 14:51:07 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/20 12:41:42 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@
 
 void	ft_init_stacks(t_data *data, t_stacks *stacks)
 {
-	stacks->a = ft_create_stack(data->tab, data->argc);
+	stacks->a = ft_create_stack(data->indexarr, data->argc);
 	stacks->b = NULL;
+	stacks->a_count = data->argc;
+	stacks->b_count = 0;
 }
 
-t_stack	*ft_create_stack(int *tab, int count)
+t_stack	*ft_create_stack(int *indexarr, int count)
 {
 	int		i;
 	t_stack	*new_node;
@@ -41,7 +43,7 @@ t_stack	*ft_create_stack(int *tab, int count)
 	{
 		if (i < count - 1)
 			new_node->next = (t_stack *)ft_malloc(sizeof(t_stack)); 
-		new_node->value = tab[i];
+		new_node->value = indexarr[i];
 		if (i == (count - 1))
 			new_node->next = NULL;
 		else
@@ -61,13 +63,15 @@ int parsing(t_data *data, char **argv, int argc)
 	while(i < argc)
 	{
 		tab[i - 1] = ft_atoi(argv[i]);
-		printf("The number[%d] = %d\n", i,tab[i - 1]);
+		// printf("The number[%d] = %d\n", i,tab[i - 1]);
 		if (tab[i - 1] <= 0 && tab[i - 1] <= 9)
 			return (FALSE);
 		i++;
 	}
 	data->argc = argc - 1;
-	printf("The count is : %d\n", data-> argc);
 	data->tab = tab;
+	data->min = 0;
+	data->max = data->argc / 2;
+	data->indexarr = copyArray(tab, data->argc);
 	return (TRUE);
 }
