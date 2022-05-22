@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/05/18 14:00:17 by moabid           ###   ########.fr        #
+#    Updated: 2022/05/21 20:59:58 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC			=	gcc
 INCLUDES	= 	-I./include
 LIBFT		= 	./libft/libft.a 
 SRCS		=	./src/main.c ./src/utils.c ./src/parsing.c ./src/operations.c \
-				./src/algorithm.c
+				./src/init.c
 
 OBJS	=	${SRCS:.c=.o}
 

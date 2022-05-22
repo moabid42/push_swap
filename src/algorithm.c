@@ -6,48 +6,48 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:44:48 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/20 16:05:42 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/21 20:54:33 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stacks.h"
 
-void	solve(t_data *data, t_stacks *stacks)
-{
-	int i;
-	int j;
+// void	solve(t_data *data, t_stacks *stacks)
+// {
+// 	int i;
+// 	int j;
 
-	i = 0;
-	j = 42;
-	while (i < data->argc)
-	{
-		if (stacks->a->value < data->mid)
-			ft_pb(stacks);
-		else
-			ft_ra(&stacks->a, -42);
-		i++;
-	}
-	// printf("* The stack a contains :\n-|");
-	// printer(stacks->a);
-	// printf("* The stack b contains :\n-|");
-	// printer(stacks->b);
+// 	i = 0;
+// 	j = 42;
+// 	while (i < data->argc)
+// 	{
+// 		if (stacks->a->value < data->mid)
+// 			ft_pb(stacks);
+// 		else
+// 			ft_ra(&stacks->a, -42);
+// 		i++;
+// 	}
+// 	// printf("* The stack a contains :\n-|");
+// 	// printer(stacks->a);
+// 	// printf("* The stack b contains :\n-|");
+// 	// printer(stacks->b);
 	
-	// printf("Max = [%d] {} Min = [%d]\n", data->max ,data->min);
-	sorting_b(data->max, data->min, stacks, data);
+// 	// printf("Max = [%d] {} Min = [%d]\n", data->max ,data->min);
+// 	sorting_b(data->max, data->min, stacks, data);
 
-	// printf("~ The stack a contains :\n-|");
-	// printer(stacks->a);
-	// printf("~ The stack b contains :\n-|");
-	// printer(stacks->b);
+// 	// printf("~ The stack a contains :\n-|");
+// 	// printer(stacks->a);
+// 	// printf("~ The stack b contains :\n-|");
+// 	// printer(stacks->b);
 	
-	// sorting_a(data->argc / 2, stacks, data);
+// 	// sorting_a(data->argc / 2, stacks, data);
 		
-	// printf("The stack a contains :\n-|");
-	// printer(stacks->a);
-	// printf("The stack b contains :\n-|");
-	// printer(stacks->b);
-	push_b_to_a(data, stacks);
-}
+// 	// printf("The stack a contains :\n-|");
+// 	// printer(stacks->a);
+// 	// printf("The stack b contains :\n-|");
+// 	// printer(stacks->b);
+// 	push_b_to_a(data, stacks);
+// }
 
 void	sorting_b(int max, int min, t_stacks *stacks, t_data *data)
 {
@@ -56,11 +56,11 @@ void	sorting_b(int max, int min, t_stacks *stacks, t_data *data)
 	int j;
 	
 	mid = (min + max) / 2;
-	printf("Max = [%d] {} Min = [%d] {} mid = [%d]\n", max ,min, mid);
-	printf("\n <->The stack a contains :\n\n-|");
-	printer(stacks->a);
-	printf("\n <->The stack b contains :\n\n-|");
-	printer(stacks->b);
+	// printf("Max = [%d] {} Min = [%d] {} mid = [%d]\n", max ,min, mid);
+	// printf("\n <-1->The stack a contains :\n\n-|");
+	// printer(stacks->a);
+	// printf("\n <-1->The stack b contains :\n\n-|");
+	// printer(stacks->b);
 	i = 0;
 	j = 0;
 	if (min >= max - 2)
@@ -84,19 +84,19 @@ void	sorting_b(int max, int min, t_stacks *stacks, t_data *data)
 		i++;
 	}
 	
-	printf("\n <->The stack a contains :\n\n-|");
-	printer(stacks->a);
-	printf("\n <->The stack b contains :\n\n-|");
-	printer(stacks->b);
+	// printf("\n <-2->The stack a contains :\n\n-|");
+	// printer(stacks->a);
+	// printf("\n <-2->The stack b contains :\n\n-|");
+	// printer(stacks->b);
 	
 	sortLower(j, stacks, data);
 
 	push_a_to_b(data, stacks);
 	
-	printf("\n <->The stack a contains :\n\n-|");
-	printer(stacks->a);
-	printf("\n <->The stack b contains :\n\n-|");
-	printer(stacks->b);
+	// printf("\n <-3->The stack a contains :\n\n-|");
+	// printer(stacks->a);
+	// printf("\n <-3->The stack b contains :\n\n-|");
+	// printer(stacks->b);
 	
 	sorting_b(max, min + ((max - min) / 2), stacks, data);
 }
@@ -107,10 +107,27 @@ void	sorting_b(int max, int min, t_stacks *stacks, t_data *data)
 	
 // }
 
+void	sortFirst(t_stacks *stacks, t_data *data)
+{
+	int top;
+
+	top = (data->argc / 4) - 1;
+	while (top)
+	{
+		if (stacks->b->value == top) // top value = data->argc / 4
+		{
+			ft_pa(stacks);
+			top--;
+		}
+		else
+			ft_rb(&stacks->b, -42);	
+	}
+}
+
 void	sortLower(int j, t_stacks *stacks, t_data *data)
 {
 	if (j == data->argc / 4)
-		sort();
+		sortFirst(stacks, data);
 	else
 		while (j--)
 			ft_rrb(&stacks->b, -42);

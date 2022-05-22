@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:50 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/20 12:44:40 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/22 21:09:19 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,42 +33,46 @@ int main(int argc, char **argv)
 	// printf("The sorted array is :\n");
 	// printtab(data->tab, data->argc);
 	
-	data->mid = data->argc / 2;
+	data->partitions = (data->argc / 10) + 1;
 
 	// printf("The average is : %d\n", data->mid);
-	// ft_sa(&stacks->a, -42);
-	// // printer(stacks->b);
-	// // printer(stacks->a);
-	// ft_pb(stacks);
-	// // printer(stacks->b);
-	// // printer(stacks->a);
-	// ft_pb(stacks);
-	// // printer(stacks->b);
-	// // printer(stacks->a);
-	// ft_pb(stacks);
-	// // printer(stacks->b);
-	// // printer(stacks->a);
-	// ft_pa(stacks);
-	// // printer(stacks->b);
-	// // printer(stacks->a);
-	// ft_sb(&stacks->b, -42);
-	// // printer(stacks->b);
-	// // printer(stacks->a);
-	// ft_ra(&stacks->a, -42);
-	// // printer(stacks->b);
-	// // printer(stacks->a);
-	// ft_rra(&stacks->a, -42);
-	// // printer(stacks->b);
-	// // printer(stacks->a);
-	// ft_rrb(&stacks->b, -42);
 	// printf("The stack a contains :\n-|");
 	// printer(stacks->a);
 	// printf("The stack b contains :\n-|");
 	// printer(stacks->b);
-	solve(data, stacks);
+
+	solve(stacks, data);
 	
 	// printf("The stack a contains :\n-|");
 	// printer(stacks->a);
 	// printf("The stack b contains :\n-|");
 	// printer(stacks->b);
 }
+
+
+// void	ft_quick_sort(t_stack **a, t_stack **b)
+// {
+// 	if (!a && ft_is_sorted(*a) && !(*b))
+// 		return ;
+// 	if (ft_len_stack(*a) == 3)
+// 		ft_sort_3(a);
+// 	else
+// 	{
+// 		printf("<-The stack a contains : \n");
+// 		printer(*a);
+// 		printf("<-The stack B contains : \n");
+// 		printer(*b);
+// 		ft_shanking(a, b, 1, 0);
+// 		printf("      After shanking :\n");
+// 		printf("The stack a contains : \n");
+// 		printer(*a);
+// 		printf("The stack B contains : \n");
+// 		printer(*b);
+// 		ft_unshanking(a, b);
+// 		printf("      After UNshanking :\n");
+// 		printf("The stack a contains : \n");
+// 		printer(*a);
+// 		printf("The stack B contains : \n");
+// 		printer(*b);
+// 	}
+// }
