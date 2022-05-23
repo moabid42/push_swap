@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/22 21:09:13 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/23 19:56:02 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,8 @@ void	quickSort(int *tab, int low, int high);
 int		partition(int tab[], int low, int high);
 void	printtab(int tab[], int size);
 void	swap(int *a, int *b);
-void	solve(t_data *data, t_stacks *stacks);
-// void	push_b_to_a(t_data *data, t_stacks *stacks);
-// void	push_a_to_b(t_data *data, t_stacks *stacks);
-// void	sorting_b(int max, int min, t_stacks *stacks, t_data *data);
-// void	sorting_a(int elements, t_stacks *stacks, t_data *data);
-// void	sortLower(int j, t_stacks *stacks, t_data *data);
+
+
 
 ///////////////////////
 //	  Algorithm		 //
@@ -109,22 +105,17 @@ void	solve(t_data *data, t_stacks *stacks);
 
 void	ft_init_shunk(t_stack *a);
 int		ft_is_sorted(t_stack *a);
-void	ft_unshanking(t_stack **a, t_stack **b);
-void	ft_shanking(t_stack **a, t_stack **b, int start, int nbr_ra);
-int		ft_pushmeIFless(t_stack **a, t_stack **b, int pivot, int shunk);
-void	ft_b_divide(t_stack **a, t_stack **b);
-void	solve(t_data *data, t_stacks *stacks);
+void	ft_unshanking(t_stacks *stacks);
+void	ft_shanking(t_stacks *stacks, int start, int nbr_ra);
+int		ft_pushmeIFless(t_stacks *stacks, int pivot, int shunk);
+void	ft_b_divide(t_stacks *stacks);
 void	solve(t_stacks *stacks, t_data *data);
 int		ft_nbr_shunk(t_stack *a, int shunk);
-int		ft_chr_less_pivot(t_stack *a, int pivot);
-int		ft_get_the_midlle(t_stack *a, int shunk);
+int		ft_lessPivotChecker(t_stack *a, int pivot);
+int		ft_getMidlle(t_stack *a, int shunk);
 void	sortSmall(int top, t_stacks *stacks, t_data *data);
 
 
-void	ft_push(t_stack **dest, t_stack **src, int c);
-void	ft_rotate(t_stack **a, int c);
-void	ft_reverse(t_stack **a, int c);
-void	ft_fswap(t_stack *a, int c);
 int		ft_chr_grender_pivot(t_stack *a, int pivot);
 int		ft_bottum_stack(t_stack *a);
 int		ft_nbr_shunk(t_stack *a, int shunk);

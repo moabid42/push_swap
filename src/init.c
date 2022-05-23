@@ -6,38 +6,11 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:38:58 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/22 21:10:04 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/23 20:00:48 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stacks.h"
-
-// void	ft_sort_3(t_stack **a)
-// {
-// 	int	c1;
-// 	int	c2;
-// 	int	c3;
-
-// 	c1 = (*a)->value;
-// 	c2 = (*a)->next->value;
-// 	c3 = (*a)->next->next->value;
-// 	if (c1 > c2 && c2 < c1 && c1 < c3)
-// 		ft_fswap(*a, 'a');
-// 	else if (c1 > c2 && c2 > c3 && c1 > c3)
-// 	{
-// 		ft_fswap(*a, 'a');
-// 		ft_reverse(a, 'a');
-// 	}
-// 	else if (c1 > c2 && c2 < c3 && c1 > c3)
-// 		ft_rotate(a, 'a');
-// 	else if (c1 < c2 && c2 > c3 && c1 < c3)
-// 	{
-// 		ft_fswap(*a, 'a');
-// 		ft_reverse(a, 'a');
-// 	}
-// 	else
-// 		ft_reverse(a, 'a');
-// }
 
 void	ft_sortSmall(t_stacks *stacks, t_data *data)
 {
@@ -87,34 +60,34 @@ int	ft_nbr_shunk(t_stack *a, int shunk)
 int	ft_chr_grender_pivot(t_stack *a, int pivot)
 {
 	int		shunk;
-	t_stack	*sp;
+	t_stack	*tmp;
 
 	shunk = a->shunk;
-	sp = a;
-	while (sp && sp->shunk == shunk)
+	tmp = a;
+	while (tmp && tmp->shunk == shunk)
 	{
-		if (sp->value > pivot)
+		if (tmp->value > pivot)
 			return (1);
-		sp = sp->next;
+		tmp = tmp->next;
 	}
 	return (0);
 }
 
-void	ft_unshanking(t_stack **a, t_stack **b)
+void	ft_unshanking(t_stacks *stacks)
 {
-	while (*b)
+	while (stacks->b)
 	{
-		if (ft_nbr_shunk(*b, (*b)->shunk) == 1)
-			ft_push(a, b, 'a');
-		else if (ft_nbr_shunk(*b, (*b)->shunk) == 2)
+		if (ft_nbr_shunk(stacks->b, stacks->b->shunk) == 1)
+			ft_pa(stacks);
+		else if (ft_nbr_shunk(stacks->b, stacks->b->shunk) == 2)
 		{
-			if ((*b)->value <= (*b)->next->value)
-				ft_sb(b, -42);
-			ft_push(a, b, 'a');
-			ft_push(a, b, 'a');
+			if (stacks->b->value <= stacks->b->next->value)
+				ft_sb(&stacks->b, -42);
+			ft_pa(stacks);
+			ft_pa(stacks);
 		}
 		else
-			ft_b_divide(a, b);
+			ft_b_divide(stacks);
 	}
 }
 
@@ -123,89 +96,63 @@ void	ft_shanking(t_stacks *stacks, int start, int nbr_ra)
 	int	pivot;
 	int	shunk;
 
-	shunk = (*a)->shunk;
-	while (!ft_is_sorted(*a) && ft_nbr_shunk(*a, (*a)->shunk) > 2)
+	shunk = stacks->a->shunk;
+	while (!ft_is_sorted(stacks->a) && ft_nbr_shunk(stacks->a, stacks->a->shunk) > 2)
 	{
 		shunk++;
 		nbr_ra = 0;
-		pivot = ft_get_the_midlle(*a, (*a)->shunk);
-		printf("I m the fucking \
-					Pivot  %d    \n", pivot);
-		while (ft_chr_less_pivot(*a, pivot))
+		pivot = ft_getMidlle(stacks->a, stacks->a->shunk);
+		while (ft_lessPivotChecker(stacks->a, pivot) == TRUE) // we are gonna stop if there is no more pivot left
 		{
-			if (ft_pushmeIFless(a, b, pivot, shunk))
+			if (ft_pushmeIFless(stacks, pivot, shunk) == TRUE)
 			{
-				ft_ra(a, -42);
-				// printf("      After ROTATION :\n");
-				// printf("The stack a contains : \n");
-				// printer(*a);
-				// printf("The stack B contains : \n");
-				// printer(*b);
+				ft_ra(&stacks->a, -42);
 				nbr_ra++;
 			}
 		}
 		while (!start && nbr_ra--)
-		{
-			ft_rra(a, -42);
-			// printf("      After Reversing :\n");
-			// printf("The stack a contains : \n");
-			// printer(*a);
-			// printf("The stack B contains : \n");
-			// printer(*b);	
-		}
+			ft_rra(&stacks->a, -42);
 	}
-	if (!ft_is_sorted(*a))
-	{
-		ft_sa(a, -42);
-		// printf("      After Swaping :\n");
-		// printf("The stack a contains : \n");
-		// printer(*a);
-		// printf("The stack B contains : \n");
-		// printer(*b);
-	}
+	if (ft_is_sorted(stacks->a) == FALSE)
+		ft_sa(&stacks->a, -42);
 }
 
-int	ft_pushmeIFless(t_stack **a, t_stack **b, int pivot, int shunk)
+int	ft_pushmeIFless(t_stacks *stacks, int pivot, int shunk)
 {
-	if ((*a)->value < pivot)
+	if (stacks->a->value < pivot)
 	{
-		ft_push(b, a, 'b');
-			// printf("      After Pushing :\n");
-			// printf("The stack a contains : \n");
-			// printer(*a);
-			// printf("The stack B contains : \n");
-			// printer(*b);
-		(*b)->shunk = shunk;
-		return (0);
+		ft_pb(stacks);
+		stacks->b->shunk = shunk;
+		return (FALSE);
 	}
-	return (1);
+	return (TRUE);
 }
 
-void	ft_b_divide(t_stack **a, t_stack **b)
+void	ft_b_divide(t_stacks *stacks)
 {
 	int	pivot;
 	int	rb_nbr;
 
 	rb_nbr = 0;
 	pivot = 0;
-	pivot = ft_get_the_midlle(*b, (*b)->shunk);
-	while (ft_chr_grender_pivot(*b, pivot))
+	pivot = ft_getMidlle(stacks->b, stacks->b->shunk);
+	while (ft_chr_grender_pivot(stacks->b, pivot))
 	{
-		if ((*b)->value > pivot)
+		if (stacks->b->value > pivot)
 		{
-			ft_push(a, b, 'a');
-			(*a)->shunk++;
-			(*a)->shunk++;
+			ft_pa(stacks);
+			stacks->a->shunk++;
+			stacks->a->shunk++;
 		}
 		else
 		{
-			ft_rotate(b, 'b');
+			ft_rb(&stacks->b, -42);
 			rb_nbr++;
 		}
 	}
 	while (rb_nbr--)
-		ft_reverse(b, 'b');
-	ft_shanking(a, b, 0, 0);
+		ft_rrb(&stacks->b, -42);
+	ft_shanking(stacks, 0, 0);
 }
 
 //work on the edge cases
@@ -230,7 +177,7 @@ void	solve(t_stacks *stacks, t_data *data)
 		printf("The stack B contains : \n");
 		printer(stacks->b);
 
-		ft_unshanking(&stacks->a, &stacks->b);
+		ft_unshanking(stacks);
 		
 		printf("      After UNshanking :\n");
 		printf("The stack a contains : \n");
@@ -262,7 +209,7 @@ void	ft_sort_integer_table(int *tab, int size)
 	}
 }
 // To Do: get rid of this function and use t_data
-int	ft_get_the_midlle(t_stack *a, int shunk)
+int	ft_getMidlle(t_stack *a, int shunk)
 {
 	int	len;
 	int	*array;
@@ -284,16 +231,16 @@ int	ft_get_the_midlle(t_stack *a, int shunk)
 	return (pivot);
 }
 
-int	ft_chr_less_pivot(t_stack *a, int pivot)
+int	ft_lessPivotChecker(t_stack *a, int pivot)
 {
-	t_stack	*sp;
+	t_stack	*tmp;
 
-	sp = a;
-	while (sp)
+	tmp = a;
+	while (tmp)
 	{
-		if (sp->value < pivot)
+		if (tmp->value < pivot)
 			return (1);
-		sp = sp->next;
+		tmp = tmp->next;
 	}
 	return (0);
 }
@@ -341,90 +288,6 @@ void	ft_init_shunk(t_stack *a)
 	{
 		tmp->shunk = 0;
 		tmp = tmp->next;
-	}
-}
-
-
-void	ft_fswap(t_stack *a, int c)
-{
-	int	tmp;
-
-	if (a && a->next)
-	{
-		tmp = a->value;
-		a->value = a->next->value;
-		a->next->value = tmp;
-	}
-	if (c)
-	{
-		write(1, "s", 1);
-		write(1, &c, 1);
-		write(1, "\n", 1);
-	}
-}
-
-void	ft_push(t_stack **dest, t_stack **src, int c)
-{
-	t_stack	*tmp;
-
-	if (*src)
-	{
-		tmp = *src;
-		*src = (*src)->next;
-		tmp->next = *dest;
-		*dest = tmp;
-	}
-	if (c)
-	{
-		write(1, "p", 1);
-		write(1, &c, 1);
-		write(1, "\n", 1);
-	}
-}
-
-void	ft_rotate(t_stack **a, int c)
-{
-	t_stack	*tmp;
-	t_stack	*head;
-
-	if (*a && (*a)->next)
-	{
-		head = *a;
-		*a = (*a)->next;
-		tmp = head;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = head;
-		tmp->next->next = NULL;
-	}
-	if (c)
-	{
-		write(1, "r", 1);
-		write(1, &c, 1);
-		write(1, "\n", 1);
-	}
-}
-
-void	ft_reverse(t_stack **a, int c)
-{
-	t_stack	*last;
-	t_stack	*tmp;
-
-	if (*a && (*a)->next)
-	{
-		tmp = *a;
-		while (tmp->next->next)
-			tmp = tmp->next;
-		last = tmp->next;
-		tmp->next = NULL;
-		last->next = *a;
-		*a = last;
-	}
-	if (c)
-	{
-		write(1, "rr", 2);
-		write(1, &c, 1);
-		write(1, "\n", 1);
 	}
 }
 
