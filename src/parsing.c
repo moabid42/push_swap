@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/23 22:18:05 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/24 16:41:34 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,18 @@ int parsing(t_data *data, char **argv, int argc)
 	tab = (int *)ft_malloc(sizeof(int) * (argc - 1));
 	while(i < argc)
 	{
+		if (ft_IsNumber(argv[i]) == FALSE)
+			return (FALSE);
 		tab[i - 1] = ft_atoi(argv[i]);
-		// printf("The number[%d] = %d\n", i,tab[i - 1]);
-		if (tab[i - 1] <= 0 && tab[i - 1] <= 9)
+		if (tab[i - 1] == 0 && ft_strlen(argv[i]) != 1)
 			return (FALSE);
 		i++;
 	}
+	if (ft_check_duplication(tab, argc - 1) == TRUE)
+		return (FALSE);
+	printtab(tab, argc - 1);
 	data->argc = argc - 1;
 	data->tab = tab;
-	data->min = 0;
-	data->max = data->argc / 2;
 	data->indexarr = copyArray(tab, data->argc);
 	return (TRUE);
 }

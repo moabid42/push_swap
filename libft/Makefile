@@ -67,7 +67,7 @@ ${NAME} : ${OFILES} ${INC}
 	@echo "${YELLOW}libft.a created 👍${NC}"
 
 %.o:%.c
-	@${CC} ${W} -o $@ -c $<
+	@${CC} ${CFLAGS} -o $@ -c $<
 
 clean:
 	@rm -f ${OFILES} ${OBONUS}

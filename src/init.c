@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:38:58 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/23 22:13:10 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/24 15:55:08 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_shanking(t_stacks *stacks, int start, int nbr_ra)
 		pivot = ft_getMidlle(stacks->a, stacks->a->shunk);
 		while (ft_lessPivotChecker(stacks->a, pivot) == TRUE) // we are gonna stop if there is no more pivot left
 		{
-			if (ft_pushmeIFless(stacks, pivot, shunk) == TRUE)
+			if (ft_pushmeIFless(stacks, pivot, shunk) == FALSE)
 			{
 				ft_ra(&stacks->a, -42);
 				nbr_ra++;
@@ -117,15 +117,17 @@ void	ft_shanking(t_stacks *stacks, int start, int nbr_ra)
 		ft_sa(&stacks->a, -42);
 }
 
+
+
 int	ft_pushmeIFless(t_stacks *stacks, int pivot, int shunk)
 {
 	if (stacks->a->value < pivot)
 	{
 		ft_pb(stacks);
 		stacks->b->shunk = shunk;
-		return (FALSE);
+		return (TRUE);
 	}
-	return (TRUE);
+	return (FALSE);
 }
 
 void	ft_b_divide(t_stacks *stacks)
@@ -247,24 +249,25 @@ int	ft_lessPivotChecker(t_stack *a, int pivot)
 	return (0);
 }
 
-void	ft_check_duplicate(t_stack *a)
-{
-	t_stack	*tmp;
-	t_stack	*iter;
+// int	ft_check_duplicate(int *tab, int number)
+// {
+// 	int i;
+// 	int j;
 
-	tmp = a;
-	while (tmp)
-	{
-		iter = a;
-		while (iter)
-		{
-			if (tmp->value == iter->value && tmp != iter)
-				exit(0);
-			iter = iter->next;
-		}
-		tmp = tmp->next;
-	}
-}
+// 	i = 0;
+// 	while (i < number - 1)
+// 	{
+// 		j = i + 1;
+// 		while (j < number - i)
+// 		{
+// 			if (tab[i] == tab[j])
+// 				return (TRUE);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	return (FALSE);
+// }
 
 int	ft_len_stack(t_stack *a)
 {

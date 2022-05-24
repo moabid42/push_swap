@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/23 22:54:17 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/24 17:02:12 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ typedef struct		s_data
 {
 	int				*tab;
 	int				*indexarr;
-	int				max;
-	int				min;
 	int				argc;
 }					t_data;
 
@@ -110,7 +108,6 @@ int		ft_chr_grender_pivot(t_stack *a, int pivot);
 int		ft_bottum_stack(t_stack *a);
 int		ft_nbr_shunk(t_stack *a, int shunk);
 int		ft_len_stack(t_stack *a);
-void	ft_check_duplicate(t_stack *a);
 
 ///////////////////////
 //	  	UTILS		 //
@@ -125,5 +122,7 @@ void		quickSort(int *tab, int low, int high);
 int			partition(int tab[], int low, int high);
 void		printtab(int tab[], int size);
 void		printer(t_stack *head);
+int			ft_check_duplication(int *tab, int size);
+int			ft_IsNumber(const char *str);
 
 #endif

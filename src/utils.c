@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/23 22:25:32 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/24 17:01:42 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,40 @@ void	ft_freeme(t_stack *stack)
 		free(stack);
 		stack = tmp;
 	}
+}
+
+int	ft_check_duplication(int *tab, int size)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while(i < size)
+	{
+		j = i + 1;
+		while(j < size + 1)
+		{
+			if (tab[i] == tab[j])
+				return (TRUE);
+				j++;
+		}
+		i++;
+	}
+	return (FALSE);
+}
+
+int	ft_IsNumber(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
 }
 
 void	*ft_malloc(size_t size)
