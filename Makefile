@@ -6,36 +6,43 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/05/21 20:59:58 by moabid           ###   ########.fr        #
+#    Updated: 2022/05/24 13:49:48 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# MAKEFLAGS += --no-builtin-rules
+# MAKEFLAGS += --no-builtin-variables
 
 NAME		=	push_swap
 FLAGS		=	-Wall -Wextra -g
 CC			=	gcc
 INCLUDES	= 	-I./include
 LIBFT		= 	./libft/libft.a 
-SRCS		=	./src/main.c ./src/utils.c ./src/parsing.c ./src/operations.c \
-				./src/init.c
+SRCS_DIR	=	./src/
+SRCS_FILES	=	main.c utils.c parsing.c operations.c \
+				init.c
+SRCS		= 	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
-OBJS	=	${SRCS:.c=.o}
+OBJ_DIR		=	./obj/
+OBJS	 = $(OBJS_FILES:.c=.o)
+OBJS_FILES		=	$(addprefix $(OBJ_DIR), $(SRCS_FILES))
 
-%.o : %.c
-		gcc -g ${FLAGS} ${INCLUDES} -c $< -o $(<:.c=.o)
+$(OBJ_DIR)%.o : $(SRCS_DIR)%.c
+	@$(CC) ${FLAGS} ${INCLUDES} -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS) 
-		@echo "\033[33m----Compiling ...----"
-		@make -C ./libft
-		@$(CC) -o $(NAME) $(INCLUDES) $(OBJS) $(LIBFT) $(LINK_FLAGS) $(MINILIBX)
-		@echo "\033[32mPUSH_SWAP Compiled! ༺ (\033[31m♥\033[32m_\033[31m♥\033[32m)༻\n"
+	@echo "\033[33m----Compiling ...----"
+	@make -C ./libft --silent
+	@$(CC) -o $(NAME) $(INCLUDES) $(OBJS) $(LIBFT)
+	@echo "\033[32mPUSH_SWAP Compiled! ༺ (\033[31m♥\033[32m_\033[31m♥\033[32m)༻\n"
 
 #$(CC) -o $(NAME) $(INCLUDES) $(OBJS) $(LINK_FLAGS) $(LIBFT) $(MINILIBX)
 #$(CC) -o $(NAME) $(INCLUDES) $(OBJS) $(LIBFT)
 clean:
 	@echo "\033[33m     Cleaning the garbage ..."
-	@make clean -C ./libft
+	@make clean -C ./libft --silent
 	@rm -f $(OBJS)
 	@echo "\033[32mEverything is cleaned!  ✓ (\033[31m>_<\033[32m)\033[33m\n"
 
