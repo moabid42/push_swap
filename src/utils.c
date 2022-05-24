@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/24 17:01:42 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/24 22:27:29 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,45 @@ void	ft_freeme(t_stack *stack)
 	}
 }
 
-int	ft_check_duplication(int *tab, int size)
+int my_strcmp(char *strg1, char *strg2)
 {
-	int i;
-	int j;
+    while(( *strg1 != '\0' && *strg2 != '\0') && *strg1 == *strg2)
+    {
+        strg1++;
+        strg2++;
+    }
+    if(*strg1 == *strg2)
+        return 0;
+    else
+        return *strg1 - *strg2;
+}
+
+void	ft_check_replication(char **av)
+{
+	 int	i;
+	 int	j;
+	char	*replica;
 
 	i = 0;
-	while(i < size)
+	while (av[i])
 	{
-		j = i + 1;
-		while(j < size + 1)
+		replica = ft_strdup(av[i]);
+		j = 0;
+		while (av[j])
 		{
-			if (tab[i] == tab[j])
-				return (TRUE);
+			if (j == i)
+				j++;
+			else if (my_strcmp(replica, av[j]) == 0)
+			{
+				free(replica);
+				ft_error();
+			}
+			else
 				j++;
 		}
+		free(replica);
 		i++;
 	}
-	return (FALSE);
 }
 
 int	ft_IsNumber(const char *str)
@@ -49,6 +70,8 @@ int	ft_IsNumber(const char *str)
 	int i;
 
 	i = 0;
+	if (str[i] == '-')
+		i++;
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:24:33 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/22 16:35:07 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 00:28:07 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,13 @@ void	ft_ss(t_stacks *stack)
 {
 	ft_sa(&stack->a, 42);
 	ft_sb(&stack->b, 42);
+	write(1, "ss\n", 3);
 }
 ///////////Push///////////
 void	ft_pb(t_stacks *stacks) // push to b
 {
 	t_stack	*buff;
 
-	stacks->a_count--;
-	stacks->b_count++;
 	buff = stacks->a;
 	stacks->a = stacks->a->next;
 	buff->next = stacks->b;
@@ -62,8 +61,6 @@ void	ft_pa(t_stacks *stacks) // push to a
 {
 	t_stack	*buff;
 
-	stacks->b_count--;
-	stacks->a_count++;
 	buff = stacks->b;
 	stacks->b = stacks->b->next;
 	buff->next = stacks->a;
@@ -80,7 +77,6 @@ void	ft_ra(t_stack **a, int id)
 		return ;
 	buff = *a;
 	*a = (*a)->next;
-	// printer(*a);
 	buff->next = NULL;
 	ft_insert_back(a, buff);
 	if (id == -42)
@@ -95,7 +91,6 @@ void	ft_rb(t_stack **b, int id)
 		return ;
 	buff = *b;
 	*b = (*b)->next;
-	// printer(*a);
 	buff->next = NULL;
 	ft_insert_back(b, buff);
 	if (id == -42)
@@ -106,6 +101,7 @@ void	ft_rr(t_stacks *stack)
 {
 	ft_ra(&stack->a, 42);
 	ft_rb(&stack->b, 42);
+	write(1, "rr\n", 3);
 }
 
 ///////////reverse rotation///////////
@@ -152,4 +148,5 @@ void	ft_rrr(t_stacks *stack)
 {
 	ft_rra(&stack->a, 42);
 	ft_rrb(&stack->b, 42);
+	write(1, "rrr\n", 3);
 }

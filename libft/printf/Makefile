@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: changhle <changhle@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/06 21:02:37 by changhle          #+#    #+#              #
-#    Updated: 2022/03/27 15:20:51 by changhle         ###   ########.fr        #
+#    Updated: 2022/05/25 00:42:34 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft
 LIBFT_LIB = libft.a
+
 NAME = libftprintf.a
 FILES = ft_printf \
 		percent_specifier \
@@ -52,8 +53,8 @@ OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 $(NAME) : $(OBJS_FILES)
-	make -C $(LIBFT) all
-	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
+	make -C ./libft --silent
+	cp ../$(LIBFT_LIB) $(NAME)
 	ar rcs $(NAME) $(OBJS_FILES)
 
 $(OBJS) : $(SRCS)

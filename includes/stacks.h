@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/24 17:02:12 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/24 22:29:17 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ typedef struct		s_data
 typedef struct 		s_stacks
 {
 	t_stack			*a;
-	int				a_count;
 	t_stack			*b;
-	int				b_count;
 }					t_stacks;
 
 ///////////////////////
@@ -90,7 +88,7 @@ void	swap(int *a, int *b);
 //	  Algorithm		 //
 ///////////////////////
 
-void		ft_sortSmall(t_stacks *stacks, t_data *data);
+void	ft_sortSmall(t_stacks *stacks, t_data *data);
 void	ft_init_shunk(t_stack *a);
 int		ft_is_sorted(t_stack *a);
 void	ft_unshanking(t_stacks *stacks);
@@ -124,5 +122,7 @@ void		printtab(int tab[], int size);
 void		printer(t_stack *head);
 int			ft_check_duplication(int *tab, int size);
 int			ft_IsNumber(const char *str);
+void		ft_check_replication(char **av);
+int			my_strcmp(char *strg1, char *strg2);
 
 #endif

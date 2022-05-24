@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/24 16:41:34 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/24 22:29:07 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_init_stacks(t_data *data, t_stacks *stacks)
 {
 	stacks->a = ft_create_stack(data->indexarr, data->argc);
 	stacks->b = NULL;
-	stacks->a_count = data->argc;
-	stacks->b_count = 0;
 }
 
 t_stack	*ft_create_stack(int *indexarr, int count)
@@ -49,6 +47,7 @@ int parsing(t_data *data, char **argv, int argc)
 	int 	*tab;
 	
 	i = 1;
+	ft_check_replication(argv);
 	tab = (int *)ft_malloc(sizeof(int) * (argc - 1));
 	while(i < argc)
 	{
@@ -59,9 +58,6 @@ int parsing(t_data *data, char **argv, int argc)
 			return (FALSE);
 		i++;
 	}
-	if (ft_check_duplication(tab, argc - 1) == TRUE)
-		return (FALSE);
-	printtab(tab, argc - 1);
 	data->argc = argc - 1;
 	data->tab = tab;
 	data->indexarr = copyArray(tab, data->argc);

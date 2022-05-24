@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:38:58 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/24 15:55:08 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/24 22:19:06 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,26 +166,26 @@ void	solve(t_stacks *stacks, t_data *data)
 		ft_sortSmall(stacks, data);
 	else
 	{
-		printf("<-The stack a contains : \n");
-		printer(stacks->a);
-		printf("<-The stack B contains : \n");
-		printer(stacks->b);
+		// printf("<-The stack a contains : \n");
+		// printer(stacks->a);
+		// printf("<-The stack B contains : \n");
+		// printer(stacks->b);
 		
 		ft_shanking(stacks, 42, 0);
 		
-		printf("      After shanking :\n");
-		printf("The stack a contains : \n");
-		printer(stacks->a);
-		printf("The stack B contains : \n");
-		printer(stacks->b);
+		// printf("      After shanking :\n");
+		// printf("The stack a contains : \n");
+		// printer(stacks->a);
+		// printf("The stack B contains : \n");
+		// printer(stacks->b);
 
 		ft_unshanking(stacks);
 		
-		printf("      After UNshanking :\n");
-		printf("The stack a contains : \n");
-		printer(stacks->a);
-		printf("The stack B contains : \n");
-		printer(stacks->b);
+		// printf("      After UNshanking :\n");
+		// printf("The stack a contains : \n");
+		// printer(stacks->a);
+		// printf("The stack B contains : \n");
+		// printer(stacks->b);
 		
 		
 	}
@@ -248,26 +248,6 @@ int	ft_lessPivotChecker(t_stack *a, int pivot)
 	}
 	return (0);
 }
-
-// int	ft_check_duplicate(int *tab, int number)
-// {
-// 	int i;
-// 	int j;
-
-// 	i = 0;
-// 	while (i < number - 1)
-// 	{
-// 		j = i + 1;
-// 		while (j < number - i)
-// 		{
-// 			if (tab[i] == tab[j])
-// 				return (TRUE);
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	return (FALSE);
-// }
 
 int	ft_len_stack(t_stack *a)
 {
