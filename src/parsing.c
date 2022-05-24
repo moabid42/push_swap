@@ -6,21 +6,11 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/20 12:41:42 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:18:05 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stacks.h"
-
-// t_stack	*new_node(char *argv)
-// {
-// 	t_stack *curr_a;
-	
-// 	curr_a = (t_stack *)ft_malloc(sizeof(t_stack));
-// 	curr_a->value = ft_atoi(argv);
-// 	curr_a->next = NULL;
-// 	return (curr_a);
-// }
 
 void	ft_init_stacks(t_data *data, t_stacks *stacks)
 {

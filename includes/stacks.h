@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/23 19:56:02 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:54:17 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct		s_data
 	int				max;
 	int				min;
 	int				argc;
-	int				partitions;
 }					t_data;
 
 typedef struct 		s_stacks
@@ -51,23 +50,16 @@ typedef struct 		s_stacks
 }					t_stacks;
 
 ///////////////////////
-//	   FUNCTIONS	 //
+//	   PARSING		 //
 ///////////////////////
 
-void	ft_error();
-int 	parsing(t_data *data, char **argv, int argc);
-void	printer(t_stack *head);
-t_stack	*new_node(char *argv);
-void	*ft_malloc(size_t size);
-void	ft_insert_back(t_stack **lst, t_stack *new);
-t_stack	*stacklast(t_stack *lst);
-void	ft_init_stacks(t_data *data, t_stacks *stacks);
-t_stack	*ft_create_stack(int *indexarr, int count);
-void	ft_insert_front(t_stack **lst, t_stack *new);
-int		average(int num, int *tab);
-int		*copyArray(int *arr, int size);
-void	indexArray(int *tab, int indexarr[], int num);
-void	ft_sort_3(t_stack **a);
+void		ft_error();
+void		ft_init_stacks(t_data *data, t_stacks *stacks);
+int 		parsing(t_data *data, char **argv, int argc);
+void		*ft_malloc(size_t size);
+t_stack		*ft_create_stack(int *indexarr, int count);
+int			*copyArray(int *arr, int size);
+void		indexArray(int *tab, int indexarr[], int num);
 
 ///////////////////////
 //	  Operations	 //
@@ -89,20 +81,18 @@ void	ft_rrb(t_stack **b, int id);
 void	ft_rrr(t_stacks *stack);
 
 ///////////////////////
-//	  Algorithm		 //
+//	  	TESTING		 //
 ///////////////////////
 
-void	quickSort(int *tab, int low, int high);
-int		partition(int tab[], int low, int high);
-void	printtab(int tab[], int size);
+
 void	swap(int *a, int *b);
 
 
-
 ///////////////////////
 //	  Algorithm		 //
 ///////////////////////
 
+void		ft_sortSmall(t_stacks *stacks, t_data *data);
 void	ft_init_shunk(t_stack *a);
 int		ft_is_sorted(t_stack *a);
 void	ft_unshanking(t_stacks *stacks);
@@ -121,5 +111,19 @@ int		ft_bottum_stack(t_stack *a);
 int		ft_nbr_shunk(t_stack *a, int shunk);
 int		ft_len_stack(t_stack *a);
 void	ft_check_duplicate(t_stack *a);
+
+///////////////////////
+//	  	UTILS		 //
+///////////////////////
+
+void		ft_free_stack(t_stack *stack);
+void		ft_insert_back(t_stack **lst, t_stack *new);
+t_stack		*stacklast(t_stack *lst);
+void		ft_insert_front(t_stack **lst, t_stack *new);
+void		ft_freeme(t_stack *stack);
+void		quickSort(int *tab, int low, int high);
+int			partition(int tab[], int low, int high);
+void		printtab(int tab[], int size);
+void		printer(t_stack *head);
 
 #endif

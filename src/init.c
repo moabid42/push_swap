@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:38:58 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/23 20:00:48 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:13:10 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_nbr_shunk(t_stack *a, int shunk)
 	return (n);
 }
 
-int	ft_chr_grender_pivot(t_stack *a, int pivot)
+int	ft_greaterPivotChecker(t_stack *a, int pivot)
 {
 	int		shunk;
 	t_stack	*tmp;
@@ -136,7 +136,7 @@ void	ft_b_divide(t_stacks *stacks)
 	rb_nbr = 0;
 	pivot = 0;
 	pivot = ft_getMidlle(stacks->b, stacks->b->shunk);
-	while (ft_chr_grender_pivot(stacks->b, pivot))
+	while (ft_greaterPivotChecker(stacks->b, pivot))
 	{
 		if (stacks->b->value > pivot)
 		{
@@ -169,7 +169,7 @@ void	solve(t_stacks *stacks, t_data *data)
 		printf("<-The stack B contains : \n");
 		printer(stacks->b);
 		
-		ft_shanking(stacks, 1, 0);
+		ft_shanking(stacks, 42, 0);
 		
 		printf("      After shanking :\n");
 		printf("The stack a contains : \n");
@@ -184,6 +184,8 @@ void	solve(t_stacks *stacks, t_data *data)
 		printer(stacks->a);
 		printf("The stack B contains : \n");
 		printer(stacks->b);
+		
+		
 	}
 }
 

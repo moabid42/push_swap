@@ -6,11 +6,23 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/20 12:45:29 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:25:32 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stacks.h"
+
+void	ft_freeme(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	while (stack)
+	{
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
+	}
+}
 
 void	*ft_malloc(size_t size)
 {
