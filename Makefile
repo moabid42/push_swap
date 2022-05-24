@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/05/24 13:49:48 by moabid           ###   ########.fr        #
+#    Updated: 2022/05/24 14:09:21 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ clean:
 	@echo "\033[33m     Cleaning the garbage ..."
 	@make clean -C ./libft --silent
 	@rm -f $(OBJS)
-	@echo "\033[32mEverything is cleaned!  ✓ (\033[31m>_<\033[32m)\033[33m\n"
 
 fclean: clean
 	@make fclean -C ./libft
