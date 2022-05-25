@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/24 22:29:07 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 16:29:13 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_init_stacks(t_data *data, t_stacks *stacks)
 {
-	stacks->a = ft_create_stack(data->indexarr, data->argc);
+	stacks->a = ft_create_stack(data->tab , data->argc);
 	stacks->b = NULL;
 }
 
@@ -59,6 +59,7 @@ int parsing(t_data *data, char **argv, int argc)
 		i++;
 	}
 	data->argc = argc - 1;
+	// reverseTab(tab, data->argc);
 	data->tab = tab;
 	data->indexarr = copyArray(tab, data->argc);
 	return (TRUE);

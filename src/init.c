@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:38:58 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/24 22:19:06 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 16:45:05 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,11 +166,6 @@ void	solve(t_stacks *stacks, t_data *data)
 		ft_sortSmall(stacks, data);
 	else
 	{
-		// printf("<-The stack a contains : \n");
-		// printer(stacks->a);
-		// printf("<-The stack B contains : \n");
-		// printer(stacks->b);
-		
 		ft_shanking(stacks, 42, 0);
 		
 		// printf("      After shanking :\n");
@@ -178,7 +173,7 @@ void	solve(t_stacks *stacks, t_data *data)
 		// printer(stacks->a);
 		// printf("The stack B contains : \n");
 		// printer(stacks->b);
-
+		
 		ft_unshanking(stacks);
 		
 		// printf("      After UNshanking :\n");
@@ -186,8 +181,6 @@ void	solve(t_stacks *stacks, t_data *data)
 		// printer(stacks->a);
 		// printf("The stack B contains : \n");
 		// printer(stacks->b);
-		
-		
 	}
 }
 
@@ -284,10 +277,10 @@ int	ft_is_sorted(t_stack *a)
 	while (a && a->shunk == shunk)
 	{
 		if (a->next && a->value > a->next->value)
-			return (0);
+			return (FALSE);
 		a = a->next;
 	}
-	return (1);
+	return (TRUE);
 }
 
 void	quickSort(int *tab, int low, int high)

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/24 22:29:17 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 15:41:12 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,7 @@ int			ft_check_duplication(int *tab, int size);
 int			ft_IsNumber(const char *str);
 void		ft_check_replication(char **av);
 int			my_strcmp(char *strg1, char *strg2);
+void		reverseTab(int *tab, int size);
+void		new_line_remove(char *line);
 
 #endif

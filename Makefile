@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/05/25 14:27:52 by moabid           ###   ########.fr        #
+#    Updated: 2022/05/25 19:22:40 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 NAME		=	push_swap
 CHECKER		=	checker
 
-FLAGS		=	-Wall -Wextra -Werror -g
+FLAGS		=	-Wall -Wextra -g
 CC			=	gcc
 INCLUDES	= 	-I./include
 LIBFT		= 	./libft/libft.a
@@ -29,7 +29,7 @@ SRCS_DIR	=	./src/
 SRCS_FILES	=	main.c utils.c parsing.c operations.c init.c
 SRCS		= 	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
-OBJ_DIR		=	./obj1/
+OBJ_DIR		=	./mnd/
 OBJS1	 	= $(OBJS_FILES:.c=.o)
 OBJS_FILES	=	$(addprefix $(OBJ_DIR), $(SRCS_FILES))
 

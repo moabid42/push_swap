@@ -6,11 +6,21 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/24 22:27:29 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 15:41:00 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stacks.h"
+
+void	new_line_remove(char *line)
+{
+	int i;
+	
+	i = 0;
+	while(line[i] != '\n')
+		i++;
+	line[i] = '\0';
+}
 
 void	ft_freeme(t_stack *stack)
 {
@@ -21,6 +31,24 @@ void	ft_freeme(t_stack *stack)
 		tmp = stack->next;
 		free(stack);
 		stack = tmp;
+	}
+}
+
+void	reverseTab(int *tab, int size)
+{
+	int j;
+	int i;
+	int Tmp;
+	
+	j = size - 1;
+	i = 0;
+	while (i < j) 
+	{
+		Tmp = tab[i];
+		tab[i] = tab[j];
+		tab[j] = Tmp;
+		i++;             
+		j--;         
 	}
 }
 
