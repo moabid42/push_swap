@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:55:30 by sthitiku          #+#    #+#             */
-/*   Updated: 2022/04/08 19:35:41 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 14:31:15 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_read	*clear_head(t_read *read, int fd)
 	return (read);
 }
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen1(char *s)
 {
 	size_t	i;
 
@@ -53,7 +53,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-void	ft_strlcpy(char *dst, char *src, size_t dstsize)
+void	ft_strlcpy1(char *dst, char *src, size_t dstsize)
 {
 	size_t	i;
 

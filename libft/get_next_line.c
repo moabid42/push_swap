@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:38:02 by sthitiku          #+#    #+#             */
-/*   Updated: 2022/04/09 00:56:03 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 14:32:03 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ char	*free_and_cpy_reminder(char *str)
 		return (NULL);
 	}
 	pos = new_line_checker(str);
-	new_len = ft_strlen(str) - pos;
+	new_len = ft_strlen1(str) - pos;
 	new = (char *)malloc(sizeof(char) * new_len);
 	if (!new)
 	{
 		free(str);
 		return (NULL);
 	}
-	ft_strlcpy(new, &str[pos + 1], new_len);
+	ft_strlcpy1(new, &str[pos + 1], new_len);
 	free(str);
 	return (new);
 }
@@ -66,7 +66,7 @@ char	*return_line(char *str)
 			free(str);
 			return (NULL);
 		}
-		ft_strlcpy(ans, str, ft_strlen(str) + 1);
+		ft_strlcpy1(ans, str, ft_strlen(str) + 1);
 		return (ans);
 	}
 	ans = (char *)malloc(sizeof(char) * (pos + 2));
@@ -75,7 +75,7 @@ char	*return_line(char *str)
 		free(str);
 		return (NULL);
 	}
-	ft_strlcpy(ans, str, pos + 2);
+	ft_strlcpy1(ans, str, pos + 2);
 	return (ans);
 }
 
@@ -95,10 +95,10 @@ char	*read_file(int fd, char *str)
 	}
 	while (fbyte > 0)
 	{
-		tmp = (char *)malloc(ft_strlen(str) + fbyte + 1);
+		tmp = (char *)malloc(ft_strlen1(str) + fbyte + 1);
 		tmp[0] = '\0';
-		ft_strlcpy(tmp, str, ft_strlen(str) + 1);
-		ft_strlcpy(&tmp[ft_strlen(str)], buf, fbyte + 1);
+		ft_strlcpy1(tmp, str, ft_strlen1(str) + 1);
+		ft_strlcpy1(&tmp[ft_strlen1(str)], buf, fbyte + 1);
 		free(str);
 		if (new_line_checker(tmp) != -42)
 			break ;

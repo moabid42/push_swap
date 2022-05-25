@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 13:38:24 by sthitiku          #+#    #+#             */
-/*   Updated: 2022/04/12 23:05:25 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 14:32:25 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <fcntl.h>
+# include "libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
@@ -30,8 +31,8 @@ typedef struct s_read
 	struct s_read	*next;
 }				t_read;
 
-size_t	ft_strlen(char *s);
-void	ft_strlcpy(char *dst, char *src, size_t dstsize);
+size_t	ft_strlen1(char *s);
+void	ft_strlcpy1(char *dst, char *src, size_t dstsize);
 char	*get_next_line(int fd);
 int		new_line_checker(char *s);
 t_read	*init_struct(int fd);

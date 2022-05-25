@@ -6,11 +6,11 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 23:05:05 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/25 00:46:51 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 14:37:01 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/checker.h"
+#include "../includes/stacks.h"
 
 void	ft_action_processing(char *line, t_stacks *stacks)
 {
@@ -44,11 +44,23 @@ void	ft_read_action(t_stacks *stacks)
 {
 	char *line;
 
-	while (line = get_next_line(0))
-	{
-		ft_action_processing(line, stacks);
-		free(line);
-	}
+	printf("hi\n");
+	line = get_next_line(0);
+	// ft_action_processing(line, stacks);
+	// free(line);
+	// line = get_next_line(0);
+	// ft_action_processing(line, stacks);
+	// free(line);
+	// line = get_next_line(0);
+	// ft_action_processing(line, stacks);
+	// free(line);
+	
+	// while (line != NULL)
+	// {
+	// 	ft_action_processing(line, stacks);
+	// 	free(line);
+	// 	line = get_next_line(0);
+	// }
 }
 
 int	main(int argc, char **argv)
@@ -65,9 +77,10 @@ int	main(int argc, char **argv)
 	quickSort(data->tab, 0, data->argc - 1);
 	indexArray(data->tab, data->indexarr, data->argc);
 	ft_init_stacks(data, stacks);
-	ft_read_actions(stacks, data);
+	printf("hi\n");
+	ft_read_action(stacks);
 	if ((ft_is_sorted(stacks->a)) && (ft_len_stack(stacks->b) == 0)
-		&& ft_len_stack(stacks->a) == data->argc))
+		&& ft_len_stack(stacks->a) == data->argc)
 		write(1, "\033[0;32mOK😁\033[0m\n", 3);
 	else
 		write(1, "\033[0;31mKO😡\033[0m\n", 3);

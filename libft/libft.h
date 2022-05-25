@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:06:59 by moabid            #+#    #+#             */
-/*   Updated: 2022/04/07 12:54:38 by moabid           ###   ########.fr       */
+/*   Updated: 2022/05/25 14:32:20 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5000
