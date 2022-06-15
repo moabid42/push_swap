@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   operations_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 13:24:50 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/15 13:58:40 by moabid           ###   ########.fr       */
+/*   Created: 2022/05/25 22:30:46 by moabid            #+#    #+#             */
+/*   Updated: 2022/06/13 20:35:28 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stacks.h"
 
-int main(int argc, char **argv)
+///////////Push///////////
+void	ft_pb(t_stacks *stacks) // push to b
 {
-	t_stacks	*stacks;
-	t_data		*data;
-	char		**strs;
-	
-	if (argc < 2)
-		ft_error();
-	data = (t_data *)ft_malloc(sizeof(t_data));
-	stacks = (t_stacks *)ft_malloc(sizeof(t_stacks));
-	if (argc == 2)
-	{
-		strs = ft_split(argv[1], argc - 1);
-	}
-	if (!parsing(data, argv, argc, 1))
-		ft_error();
-	indexArray(data->tab, data->indexarr, data->argc);
-	ft_init_stacks(data, stacks);
-	solve(stacks);
-	ft_freeme(stacks->a);
+	t_stack	*buff;
+
+	buff = stacks->a;
+	stacks->a = stacks->a->next;
+	buff->next = stacks->b; 
+	stacks->b = buff;
+	write(1, "pb\n", 3);
+}
+
+void	ft_pa(t_stacks *stacks) // push to a
+{
+	t_stack	*buff;
+
+	buff = stacks->b;
+	stacks->b = stacks->b->next;
+	buff->next = stacks->a;
+	stacks->a = buff;
+	write(1, "pa\n", 3);
 }

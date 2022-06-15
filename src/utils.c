@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/25 15:41:00 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/14 21:45:08 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,12 +243,11 @@ void	indexArray(int *tab, int *indexarr, int num)
 	while (i < num)
 	{
 		j = 0;
+		quickSort(tab, 0, num - 1);
 		while (j < num)
 		{
 			if (indexarr[i] == tab[j])
-			{
 				indexarr[i] = j; 
-			}
 			j++;
 		}
 		i++;

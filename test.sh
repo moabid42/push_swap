@@ -10,4 +10,5 @@
 # entries=($(shuf -i 0-149 -n 15))
 # echo "${entries[@]}"
 
-NBR=$(seq -500 | sort -R | tr '\n' ' ' | rev | cut -c 2- | rev)
+NBR=$(seq 100 | sort -R | tr '\n' ' ' | rev | cut -c 2- | rev)
+./push_swap $NBR

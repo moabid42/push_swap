@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 22:59:34 by moabid            #+#    #+#             */
-/*   Updated: 2022/04/16 03:36:43 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/14 21:39:16 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,19 +84,4 @@ char	**ft_split(char const *s, char c)
 	}
 	tab[i] = NULL;
 	return (tab);
-}
-
-
-#include <stdio.h>
-int main(void)
-{
-	int index;
-	char	random[] = "whatis ' this' fucking'sh it' ";
-	char **strs;
-
-	strs = ft_split(random, 39);
-	while(*strs)
-		printf("%s\n", *strs++);
-	index = ft_get_nb_strs(random, 39);;
-	printf("%d\n", index);
 }

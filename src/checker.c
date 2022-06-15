@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 23:05:05 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/25 19:23:13 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/14 21:59:47 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 		ft_error();
 	data = (t_data *)ft_malloc(sizeof(t_data));
 	stacks = (t_stacks *)ft_malloc(sizeof(t_stacks));
-	if (!parsing(data, argv, argc))
+	if (!parsing(data, argv, argc, 1))
 		ft_error();
 	ft_init_stacks(data, stacks);
 	ft_read_action(stacks);

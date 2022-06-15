@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:38:58 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/25 16:45:05 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 13:57:50 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,30 +158,12 @@ void	ft_b_divide(t_stacks *stacks)
 }
 
 //work on the edge cases
-void	solve(t_stacks *stacks, t_data *data)
+void	solve(t_stacks *stacks)
 {
 	if (!stacks->a && ft_is_sorted(stacks->a))
 		return ;
-	if (data->argc == 3)
-		ft_sortSmall(stacks, data);
-	else
-	{
-		ft_shanking(stacks, 42, 0);
-		
-		// printf("      After shanking :\n");
-		// printf("The stack a contains : \n");
-		// printer(stacks->a);
-		// printf("The stack B contains : \n");
-		// printer(stacks->b);
-		
-		ft_unshanking(stacks);
-		
-		// printf("      After UNshanking :\n");
-		// printf("The stack a contains : \n");
-		// printer(stacks->a);
-		// printf("The stack B contains : \n");
-		// printer(stacks->b);
-	}
+	ft_shanking(stacks, 42, 0);
+	ft_unshanking(stacks);
 }
 
 void	ft_sort_integer_table(int *tab, int size)
