@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:38:58 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/15 13:57:50 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 20:40:09 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_sortSmall(t_stacks *stacks, t_data *data)
 	{
 		if (stacks->a->value == top)
 		{
-			ft_pb(stacks);
+			ft_pb(stacks, -42);
 			top++;
 		}
 		else
@@ -29,7 +29,7 @@ void	ft_sortSmall(t_stacks *stacks, t_data *data)
 	}
 	while(top)
 	{
-		ft_pa(stacks);
+		ft_pa(stacks, -42);
 		top--;
 	}
 }
@@ -78,13 +78,13 @@ void	ft_unshanking(t_stacks *stacks)
 	while (stacks->b)
 	{
 		if (ft_nbr_shunk(stacks->b, stacks->b->shunk) == 1)
-			ft_pa(stacks);
+			ft_pa(stacks, -42);
 		else if (ft_nbr_shunk(stacks->b, stacks->b->shunk) == 2)
 		{
 			if (stacks->b->value <= stacks->b->next->value)
 				ft_sb(&stacks->b, -42);
-			ft_pa(stacks);
-			ft_pa(stacks);
+			ft_pa(stacks, -42);
+			ft_pa(stacks, -42);
 		}
 		else
 			ft_b_divide(stacks);
@@ -123,7 +123,7 @@ int	ft_pushmeIFless(t_stacks *stacks, int pivot, int shunk)
 {
 	if (stacks->a->value < pivot)
 	{
-		ft_pb(stacks);
+		ft_pb(stacks, -42);
 		stacks->b->shunk = shunk;
 		return (TRUE);
 	}
@@ -142,7 +142,7 @@ void	ft_b_divide(t_stacks *stacks)
 	{
 		if (stacks->b->value > pivot)
 		{
-			ft_pa(stacks);
+			ft_pa(stacks, -42);
 			stacks->a->shunk++;
 			stacks->a->shunk++;
 		}

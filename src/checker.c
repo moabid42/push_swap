@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 23:05:05 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/15 15:24:01 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 20:12:35 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	ft_action_processing(char *line, t_stacks *stacks)
 	else if (my_strcmp(line, "ss") == 0)
 		ft_ss(stacks);
 	else if (my_strcmp(line, "pa") == 0)
-		ft_pa(stacks);
+		ft_pa(stacks, 42);
 	else if (my_strcmp(line, "pb") == 0)
-		ft_pb(stacks);
+		ft_pb(stacks, 42);
 	else if (my_strcmp(line, "ra") == 0)
 		ft_ra(&stacks->a, 42);
 	else if (my_strcmp(line, "rb") == 0)

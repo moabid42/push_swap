@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:50 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/15 19:10:35 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 19:19:26 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int main(int argc, char **argv)
 	indexArray(data->tab, data->indexarr, data->argc);
 	ft_init_stacks(data, stacks);
 	solve(stacks);
-	printer(stacks->a);
 	ft_freeme(stacks->a);
 }

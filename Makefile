@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/06/15 19:03:57 by moabid           ###   ########.fr        #
+#    Updated: 2022/06/15 20:16:25 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,17 @@ INCLUDES	= 	-I./include
 LIBFT		= 	./libft/libft.a
 
 CHECKER_DIR		=	./src/
-CHECKER_FILES	=	checker.c utils.c parsing.c operations.c init.c
+CHECKER_FILES	=	checker.c utils.c parsing.c \
+					operations_p.c operations_r.c \
+					operations_rr.c operations_s.c \
+					init.c
 CHECKERS		= 	$(addprefix $(CHECKER_DIR), $(CHECKER_FILES))
 
 SRCS_DIR	=	./src/
-SRCS_FILES	=	main.c utils.c parsing.c operations.c init.c
+SRCS_FILES	=	main.c utils.c parsing.c \
+				operations_p.c operations_r.c \
+				operations_rr.c operations_s.c \
+				init.c
 SRCS		= 	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
 OBJ_DIR		=	./mnd/

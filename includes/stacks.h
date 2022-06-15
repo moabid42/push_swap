@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/15 19:00:17 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 20:12:11 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ void	ft_sa(t_stack **a, int id);
 void	ft_sb(t_stack **b, int id);
 void	ft_ss(t_stacks *stack);
 
-void	ft_pb(t_stacks *stacks);
-void	ft_pa(t_stacks *stacks);
+void	ft_pb(t_stacks *stacks, int id);
+void	ft_pa(t_stacks *stacks, int id);
 
 void	ft_ra(t_stack **a, int id);
 void	ft_rb(t_stack **b, int id);
