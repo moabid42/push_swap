@@ -6,11 +6,39 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/14 21:45:08 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 15:28:56 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/stacks.h"
+
+unsigned int	ft_get_nb_strs(char const *s, char c)
+{
+	unsigned int	i;
+	unsigned int	nb_strs;
+
+	if (!s[0])
+		return (0);
+	i = 0;
+	nb_strs = 0;
+	while (s[i] && s[i] == c)
+		i++;
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			nb_strs++;
+			while (s[i] && s[i] == c)
+				i++;
+			continue ;
+		}
+		i++;
+	}
+	if (s[i - 1] != c)
+		nb_strs++;
+	return (nb_strs);
+}
+
 
 void	new_line_remove(char *line)
 {
@@ -178,6 +206,7 @@ void	ft_insert_front(t_stack **lst, t_stack *new)
 void	ft_error()
 {
 	ft_putendl_fd("Error", 2);
+	fflush(stderr);
 	exit(1);
 }
 

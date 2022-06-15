@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/15 13:58:21 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 19:00:17 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ typedef struct 		s_stacks
 
 void		ft_error();
 void		ft_init_stacks(t_data *data, t_stacks *stacks);
-int 		parsing(t_data *data, char **argv, int argc, int start);
+int 		parsing1(t_data *data, char **argv, int argc);
+int 		parsing2(t_data *data, char **argv, int argc);
 void		*ft_malloc(size_t size);
 t_stack		*ft_create_stack(int *indexarr, int count);
 int			*copyArray(int *arr, int size);
@@ -126,5 +127,7 @@ void		ft_check_replication(char **av);
 int			my_strcmp(char *strg1, char *strg2);
 void		reverseTab(int *tab, int size);
 void		new_line_remove(char *line);
+
+unsigned int	ft_get_nb_strs(char const *s, char c);
 
 #endif

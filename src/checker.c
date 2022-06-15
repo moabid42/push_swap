@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 23:05:05 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/14 21:59:47 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 15:24:01 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,18 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 	t_data		*data;
-	
-	if (argc < 2)
-		ft_error();
+	char		**strs;
+
 	data = (t_data *)ft_malloc(sizeof(t_data));
 	stacks = (t_stacks *)ft_malloc(sizeof(t_stacks));
-	if (!parsing(data, argv, argc, 1))
+	if (argc == 2)
+	{
+		strs = ft_split(argv[1], ' ');
+		if(ft_IsNumber(argv[1]) == TRUE);
+		else if (!parsing2(data, strs, ft_get_nb_strs(argv[1], ' ')))
+			ft_error();
+	}
+	else if (!parsing1(data, argv, argc))
 		ft_error();
 	ft_init_stacks(data, stacks);
 	ft_read_action(stacks);

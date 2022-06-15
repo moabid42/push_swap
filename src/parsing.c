@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/14 21:51:27 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/15 19:10:30 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ t_stack	*ft_create_stack(int *indexarr, int count)
 	return (curr);
 }
 
-int parsing(t_data *data, char **argv, int argc, int start)
+int parsing1(t_data *data, char **argv, int argc)
 {
 	int		i;
 	int 	*tab;
 	
-	i = start;
+	i = 1;
 	ft_check_replication(argv);
 	tab = (int *)ft_malloc(sizeof(int) * (argc - 1));
 	while(i < argc)
@@ -59,6 +59,29 @@ int parsing(t_data *data, char **argv, int argc, int start)
 		i++;
 	}
 	data->argc = argc - 1;
+	data->tab = tab;
+	data->indexarr = copyArray(tab, data->argc);
+	return (TRUE);
+}
+
+int parsing2(t_data *data, char **argv, int argc)
+{
+	int		i;
+	int 	*tab;
+	
+	i = 0;
+	ft_check_replication(argv);
+	tab = (int *)ft_malloc(sizeof(int) * argc);
+	while(i < argc)
+	{
+		if (ft_IsNumber(argv[i]) == FALSE)
+			return (FALSE);
+		tab[i] = ft_atoi(argv[i]);
+		if (tab[i] == 0 && ft_strlen(argv[i]) != 1)
+			return (FALSE);
+		i++;
+	}
+	data->argc = argc;
 	data->tab = tab;
 	data->indexarr = copyArray(tab, data->argc);
 	return (TRUE);
