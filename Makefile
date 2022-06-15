@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/06/15 20:16:25 by moabid           ###   ########.fr        #
+#    Updated: 2022/06/16 00:49:45 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,25 +22,31 @@ INCLUDES	= 	-I./include
 LIBFT		= 	./libft/libft.a
 
 CHECKER_DIR		=	./src/
-CHECKER_FILES	=	checker.c utils.c parsing.c \
+CHECKER_FILES	=	checker.c parsing.c \
 					operations_p.c operations_r.c \
 					operations_rr.c operations_s.c \
-					init.c
+					presort.c shunking.c solve.c  \
+					sorting_utils.c unshunking.c \
+					utils.c utils2.c utils3.c \
+					stack_utils.c
 CHECKERS		= 	$(addprefix $(CHECKER_DIR), $(CHECKER_FILES))
 
-SRCS_DIR	=	./src/
-SRCS_FILES	=	main.c utils.c parsing.c \
-				operations_p.c operations_r.c \
-				operations_rr.c operations_s.c \
-				init.c
-SRCS		= 	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
+SRCS_DIR		=	./src/
+SRCS_FILES		=	main.c parsing.c \
+					operations_p.c operations_r.c \
+					operations_rr.c operations_s.c \
+					presort.c shunking.c solve.c  \
+					sorting_utils.c unshunking.c \
+					utils.c utils2.c utils3.c \
+					stack_utils.c
+SRCS			= 	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
-OBJ_DIR		=	./mnd/
-OBJS1	 	= $(OBJS_FILES:.c=.o)
-OBJS_FILES	=	$(addprefix $(OBJ_DIR), $(SRCS_FILES))
+OBJ_DIR			=	./mnd/
+OBJS1	 		= 	$(OBJS_FILES:.c=.o)
+OBJS_FILES		=	$(addprefix $(OBJ_DIR), $(SRCS_FILES))
 
 OBJ_DIR_2		=	./bonus/
-OBJS2		= $(OBJS_CH_FILES:.c=.o)
+OBJS2			= 	$(OBJS_CH_FILES:.c=.o)
 OBJS_CH_FILES	=	$(addprefix $(OBJ_DIR_2), $(CHECKER_FILES))
 
 $(OBJ_DIR)%.o : $(SRCS_DIR)%.c

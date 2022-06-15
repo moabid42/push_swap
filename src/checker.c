@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 23:05:05 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/15 20:12:35 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 01:33:45 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_action_processing(char *line, t_stacks *stacks)
 
 void	ft_read_action(t_stacks *stacks)
 {
-	char *line;
+	char	*line;
 
 	line = get_next_line(0);
 	while (line != NULL)
@@ -70,7 +70,8 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		strs = ft_split(argv[1], ' ');
-		if(ft_IsNumber(argv[1]) == TRUE);
+		if (ft_isnumber(argv[1]) == TRUE)
+			;
 		else if (!parsing2(data, strs, ft_get_nb_strs(argv[1], ' ')))
 			ft_error();
 	}

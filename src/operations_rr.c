@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 22:31:39 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/13 20:35:35 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 01:07:32 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ void	ft_rra(t_stack **a, int id)
 		return ;
 	buff = *a;
 	last = stacklast(*a);
-	while(buff->next->next)
-	{
+	while (buff->next->next)
 		buff = buff->next;
-	}
 	buff->next = NULL;
 	ft_insert_front(a, last);
 	if (id == -42)
@@ -41,10 +39,8 @@ void	ft_rrb(t_stack **b, int id)
 		return ;
 	buff = *b;
 	last = stacklast(*b);
-	while(buff->next->next)
-	{
+	while (buff->next->next)
 		buff = buff->next;
-	}
 	buff->next = NULL;
 	ft_insert_front(b, last);
 	if (id == -42)

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 22:31:12 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/14 19:06:27 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 01:06:57 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	ft_ra(t_stack **a, int id)
 {
-	t_stack *buff;
+	t_stack	*buff;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;
@@ -30,7 +30,7 @@ void	ft_ra(t_stack **a, int id)
 
 void	ft_rb(t_stack **b, int id)
 {
-	t_stack *buff;
+	t_stack	*buff;
 
 	if (*b == NULL || (*b)->next == NULL)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/15 19:10:30 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 01:33:14 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_init_stacks(t_data *data, t_stacks *stacks)
 {
-	stacks->a = ft_create_stack(data->indexarr , data->argc);
+	stacks->a = ft_create_stack(data->indexarr, data->argc);
 	stacks->b = NULL;
 }
 
@@ -30,7 +30,7 @@ t_stack	*ft_create_stack(int *indexarr, int count)
 	while (i < count)
 	{
 		if (i < count - 1)
-			new_node->next = (t_stack *)ft_malloc(sizeof(t_stack)); 
+			new_node->next = (t_stack *)ft_malloc(sizeof(t_stack));
 		new_node->value = indexarr[i];
 		if (i == (count - 1))
 			new_node->next = NULL;
@@ -41,17 +41,17 @@ t_stack	*ft_create_stack(int *indexarr, int count)
 	return (curr);
 }
 
-int parsing1(t_data *data, char **argv, int argc)
+int	parsing1(t_data *data, char **argv, int argc)
 {
 	int		i;
-	int 	*tab;
-	
+	int		*tab;
+
 	i = 1;
 	ft_check_replication(argv);
 	tab = (int *)ft_malloc(sizeof(int) * (argc - 1));
-	while(i < argc)
+	while (i < argc)
 	{
-		if (ft_IsNumber(argv[i]) == FALSE)
+		if (ft_isnumber(argv[i]) == FALSE)
 			return (FALSE);
 		tab[i - 1] = ft_atoi(argv[i]);
 		if (tab[i - 1] == 0 && ft_strlen(argv[i]) != 1)
@@ -60,21 +60,21 @@ int parsing1(t_data *data, char **argv, int argc)
 	}
 	data->argc = argc - 1;
 	data->tab = tab;
-	data->indexarr = copyArray(tab, data->argc);
+	data->indexarr = copy_array(tab, data->argc);
 	return (TRUE);
 }
 
-int parsing2(t_data *data, char **argv, int argc)
+int	parsing2(t_data *data, char **argv, int argc)
 {
 	int		i;
-	int 	*tab;
-	
+	int		*tab;
+
 	i = 0;
 	ft_check_replication(argv);
 	tab = (int *)ft_malloc(sizeof(int) * argc);
-	while(i < argc)
+	while (i < argc)
 	{
-		if (ft_IsNumber(argv[i]) == FALSE)
+		if (ft_isnumber(argv[i]) == FALSE)
 			return (FALSE);
 		tab[i] = ft_atoi(argv[i]);
 		if (tab[i] == 0 && ft_strlen(argv[i]) != 1)
@@ -83,6 +83,6 @@ int parsing2(t_data *data, char **argv, int argc)
 	}
 	data->argc = argc;
 	data->tab = tab;
-	data->indexarr = copyArray(tab, data->argc);
+	data->indexarr = copy_array(tab, data->argc);
 	return (TRUE);
 }
