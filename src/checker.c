@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 23:05:05 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 01:33:45 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:02:45 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,17 @@ int	main(int argc, char **argv)
 	t_stacks	*stacks;
 	t_data		*data;
 	char		**strs;
+	char		*str;
 
 	data = (t_data *)ft_malloc(sizeof(t_data));
 	stacks = (t_stacks *)ft_malloc(sizeof(t_stacks));
-	if (argc == 2)
+	if (argc > 1)
 	{
-		strs = ft_split(argv[1], ' ');
-		if (ft_isnumber(argv[1]) == TRUE)
-			;
-		else if (!parsing2(data, strs, ft_get_nb_strs(argv[1], ' ')))
+		str = parseme(argv, argc);
+		strs = ft_split(str, ' ');
+		if (!parsing2(data, strs, ft_get_nb_strs(str, ' ')))
 			ft_error();
 	}
-	else if (!parsing1(data, argv, argc))
-		ft_error();
 	ft_init_stacks(data, stacks);
 	ft_read_action(stacks);
 	if ((ft_is_sorted(stacks->a) == TRUE && (stacks->b == NULL)))

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 01:25:40 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:01:58 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,5 +141,6 @@ int				partition(int tab[], int low, int high);
 int				ft_getMidlle(t_stack *a, int shunk);
 void			ft_sort_integer_table(int *tab, int size);
 int				ft_len_stack(t_stack *a);
+char			*parseme(char **argv, int argc);
 
 #endif

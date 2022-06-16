@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 01:33:14 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:03:33 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,20 @@ t_stack	*ft_create_stack(int *indexarr, int count)
 	return (curr);
 }
 
-int	parsing1(t_data *data, char **argv, int argc)
+char	*parseme(char **argv, int argc)
 {
 	int		i;
-	int		*tab;
+	char	*str;
 
 	i = 1;
-	ft_check_replication(argv);
-	tab = (int *)ft_malloc(sizeof(int) * (argc - 1));
+	str = ft_strdup("");
 	while (i < argc)
 	{
-		if (ft_isnumber(argv[i]) == FALSE)
-			return (FALSE);
-		tab[i - 1] = ft_atoi(argv[i]);
-		if (tab[i - 1] == 0 && ft_strlen(argv[i]) != 1)
-			return (FALSE);
+		str = ft_strjoin(str, argv[i]);
+		str = ft_strjoin(str, " ");
 		i++;
 	}
-	data->argc = argc - 1;
-	data->tab = tab;
-	data->indexarr = copy_array(tab, data->argc);
-	return (TRUE);
+	return (str);
 }
 
 int	parsing2(t_data *data, char **argv, int argc)
