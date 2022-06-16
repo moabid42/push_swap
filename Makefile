@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/06/16 00:49:45 by moabid           ###   ########.fr        #
+#    Updated: 2022/06/16 19:37:04 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,13 +41,21 @@ SRCS_FILES		=	main.c parsing.c \
 					stack_utils.c
 SRCS			= 	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
-OBJ_DIR			=	./mnd/
+OBJ_DIR			=	./obj_mnd/
+OBJ_DIR_2		=	./obj_bonus/
 OBJS1	 		= 	$(OBJS_FILES:.c=.o)
 OBJS_FILES		=	$(addprefix $(OBJ_DIR), $(SRCS_FILES))
-
-OBJ_DIR_2		=	./bonus/
 OBJS2			= 	$(OBJS_CH_FILES:.c=.o)
 OBJS_CH_FILES	=	$(addprefix $(OBJ_DIR_2), $(CHECKER_FILES))
+
+all: $(NAME)
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR_2):
+	@mkdir -p $(OBJ_DIR_2)
+
 
 $(OBJ_DIR)%.o : $(SRCS_DIR)%.c
 	@$(CC) ${FLAGS} ${INCLUDES} -c $< -o $@
@@ -55,31 +63,34 @@ $(OBJ_DIR)%.o : $(SRCS_DIR)%.c
 $(OBJ_DIR_2)%.o : $(CHECKER_DIR)%.c
 	@$(CC) ${FLAGS} ${INCLUDES} -c $< -o $@
 
-all: $(NAME) $(CHECKER)
 
-$(NAME): $(OBJS1) 
+$(NAME): $(OBJ_DIR) $(OBJS1) 
 	@echo "\033[33m----Compiling PUSH_SWAP...----"
 	@make -C ./libft --silent
 	@$(CC) -o $(NAME) $(INCLUDES) $(OBJS1) $(LIBFT)
 	@echo "\033[32mPUSH_SWAP Compiled! ༺ (\033[31m♥\033[32m_\033[31m♥\033[32m)༻\n"
 
-$(CHECKER): $(OBJS2)
+$(CHECKER): $(OBJ_DIR_2) $(OBJS2)
 	@echo "\033[33m----Compiling CHECKER...----"
 	@make -C ./libft --silent
 	@$(CC) -o $(CHECKER) $(INCLUDES) $(OBJS2) $(LIBFT)
 	@echo "\033[32mCHECKER Compiled! ༺ (\033[31m♥\033[32m_\033[31m♥\033[32m)༻\n"
 
+bonus: $(CHECKER)
+
 clean:
 	@echo "\033[33m     Cleaning the garbage ..."
 	@make clean -C ./libft --silent
+	@rm -rf $(OBJ_DIR)  $(OBJ_DIR_2)
 	@rm -f $(OBJS1)
 	@rm -f $(OBJS2)
 
 fclean: clean
 	@make fclean -C ./libft
 	@rm -f $(NAME)
+	@rm -f $(CHECKER)
 	@echo "\033[32mEverything is fcleaned! ✓ (\033[31m>_<\033[32m)\n"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
