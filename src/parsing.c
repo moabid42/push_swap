@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 18:03:33 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 19:05:41 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*parseme(char **argv, int argc)
 	char	*str;
 
 	i = 1;
-	str = ft_strdup("");
+	str = ft_strdup(" ");
 	while (i < argc)
 	{
 		str = ft_strjoin(str, argv[i]);
@@ -55,6 +55,20 @@ char	*parseme(char **argv, int argc)
 		i++;
 	}
 	return (str);
+}
+
+int	space_counter(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ' ' && str[i + 1] == ' ')
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
 }
 
 int	parsing2(t_data *data, char **argv, int argc)

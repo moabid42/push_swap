@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:50 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 18:02:56 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 19:02:24 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		str = parseme(argv, argc);
+		if (space_counter(str) == TRUE)
+			ft_error();
 		strs = ft_split(str, ' ');
 		if (!parsing2(data, strs, ft_get_nb_strs(str, ' ')))
 			ft_error();

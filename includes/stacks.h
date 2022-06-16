@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 18:01:58 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 18:54:08 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ typedef struct s_stacks
 ///////////////////////
 
 void			ft_init_stacks(t_data *data, t_stacks *stacks);
-int				parsing1(t_data *data, char **argv, int argc);
 int				parsing2(t_data *data, char **argv, int argc);
 t_stack			*ft_create_stack(int *indexarr, int count);
+char			*parseme(char **argv, int argc);
+int				space_counter(char *str);
 
 ///////////////////////
 //	  Operations	 //
@@ -141,6 +142,5 @@ int				partition(int tab[], int low, int high);
 int				ft_getMidlle(t_stack *a, int shunk);
 void			ft_sort_integer_table(int *tab, int size);
 int				ft_len_stack(t_stack *a);
-char			*parseme(char **argv, int argc);
 
 #endif
