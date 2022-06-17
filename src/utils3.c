@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:21:49 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 22:16:31 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 22:57:20 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	ft_check_replication(char **av)
 		{
 			if (j == i)
 				j++;
-			else if (my_strcmp(replica, av[j]) == 0)
+			else if ((my_strcmp(replica, av[j]) == 0) 
+				|| (ft_atoi(replica) == ft_atoi(av[j])))
 				ft_error(replica);
 			else
 				j++;

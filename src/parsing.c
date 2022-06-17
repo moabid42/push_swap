@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 22:16:23 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 23:32:33 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ int	parsing2(t_data *data, char **argv, int argc)
 		if (ft_isnumber(argv[i]) == FALSE)
 			return (FALSE);
 		tab[i] = ft_atoi(argv[i]);
-		if (tab[i] == 0 && ft_strlen(argv[i]) != 1)
+		if (((tab[i] == 0) && (ft_strlen(argv[i]) != 1))
+			|| (ft_strlen(argv[i]) > 11))
 			return (FALSE);
 		i++;
 	}
