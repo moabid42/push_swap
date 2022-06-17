@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/06/16 19:37:04 by moabid           ###   ########.fr        #
+#    Updated: 2022/06/16 22:01:56 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ fclean: clean
 	@make fclean -C ./libft
 	@rm -f $(NAME)
 	@rm -f $(CHECKER)
-	@echo "\033[32mEverything is fcleaned! ✓ (\033[31m>_<\033[32m)\n"
+	@echo "\033[32mEverything is fcleaned! ✓ (\033[31m>_<\033[32m)\n\033[0m"
 
 re: fclean all
 

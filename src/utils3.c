@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:21:49 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 18:03:17 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 00:21:23 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ void	printer(t_stack *head)
 	printf("\n");
 }
 
-// void	printtab(int tab[], int size)
-// {
-// 	int	i;
+void	printtab(int tab[], int size)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (i < size)
-// 	{
-// 		// printf("%d  ", tab[i]);
-// 		i++;
-// 	}
-// 	// printf("\n");
-// }
+	i = 0;
+	while (i < size)
+	{
+		printf("%d  ", tab[i]);
+		i++;
+	}
+	printf("\n");
+}
 
 void	*ft_malloc(size_t size)
 {
@@ -86,6 +86,19 @@ void	ft_check_replication(char **av)
 				j++;
 		}
 		free(replica);
+		i++;
+	}
+}
+
+void	ft_sanitize(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] == '-' || str[i] == '+') && !ft_isdigit(str[i + 1]))
+			ft_error();
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:09:30 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 18:02:21 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 02:20:07 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	ft_isspace(int c)
 
 int	ft_atoi(const char *str)
 {
-	long	num;
-	int		sign;
+	long long	num;
+	int			sign;
 
 	num = 0;
 	sign = 1;
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str)
 		str++;
 	while (*str >= '0' && *str <= '9')
 		num = num * 10 + *str++ - '0';
-	if (num > MAX || num < MIN)
+	if (num * sign > MAX || num * sign < MIN)
 		return (0);
 	return (num * sign);
 }

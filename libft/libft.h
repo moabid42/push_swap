@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:06:59 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/25 14:32:20 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 00:28:14 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # endif
 
 # define MAX 2147483647
-# define MIN -2147483647
+# define MIN -2147483648
 
 typedef struct s_list
 {

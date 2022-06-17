@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 19:05:41 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 02:22:55 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_init_stacks(t_data *data, t_stacks *stacks)
 {
-	stacks->a = ft_create_stack(data->indexarr, data->argc);
+	stacks->a = ft_create_stack(data->tab, data->argc);
 	stacks->b = NULL;
 }
 
@@ -50,6 +50,8 @@ char	*parseme(char **argv, int argc)
 	str = ft_strdup(" ");
 	while (i < argc)
 	{
+		if (ft_atoi(argv[i]) == 0 && ft_strlen(argv[i]) != 1)
+			ft_error();
 		str = ft_strjoin(str, argv[i]);
 		str = ft_strjoin(str, " ");
 		i++;
@@ -57,18 +59,17 @@ char	*parseme(char **argv, int argc)
 	return (str);
 }
 
-int	space_counter(char *str)
+void	check_error(char **argv, int argc)
 {
-	int	i;
+	int i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 1;
+	while (i < argc)
 	{
-		if (str[i] == ' ' && str[i + 1] == ' ')
-			return (TRUE);
+		if (ft_atoi(argv[i]) == 0 && ft_strlen(argv[i]) != 1)
+			ft_error();
 		i++;
 	}
-	return (FALSE);
 }
 
 int	parsing2(t_data *data, char **argv, int argc)
@@ -90,6 +91,5 @@ int	parsing2(t_data *data, char **argv, int argc)
 	}
 	data->argc = argc;
 	data->tab = tab;
-	data->indexarr = copy_array(tab, data->argc);
 	return (TRUE);
 }

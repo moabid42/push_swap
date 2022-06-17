@@ -6,11 +6,11 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 13:53:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/03/25 16:34:42 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 22:00:18 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

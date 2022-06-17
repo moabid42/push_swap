@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/16 18:54:08 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 02:22:46 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_stack
 typedef struct s_data
 {
 	int				*tab;
-	int				*indexarr;
 	int				argc;
 }				t_data;
 
@@ -142,5 +141,8 @@ int				partition(int tab[], int low, int high);
 int				ft_getMidlle(t_stack *a, int shunk);
 void			ft_sort_integer_table(int *tab, int size);
 int				ft_len_stack(t_stack *a);
+
+void			check_error(char **argv, int argc);
+void			ft_sanitize(char *str);
 
 #endif

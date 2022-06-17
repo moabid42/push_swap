@@ -6,11 +6,11 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:13:08 by moabid            #+#    #+#             */
-/*   Updated: 2022/05/21 21:40:47 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/16 22:00:05 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
