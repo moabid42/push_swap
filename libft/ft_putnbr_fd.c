@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 15:03:07 by moabid            #+#    #+#             */
-/*   Updated: 2022/04/11 05:01:25 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 16:43:03 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int nb, int fd)
 {
-	if ((nb > MAX || nb < MIN) && fd < 0)
+	if (fd < 0)
 		return ;
 	if (nb == -2147483648)
 	{

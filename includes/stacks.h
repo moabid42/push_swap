@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 02:22:46 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 19:21:41 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ t_stack			*ft_create_stack(int *indexarr, int count);
 char			*parseme(char **argv, int argc);
 int				space_counter(char *str);
 
+void	ft_free_stacks(t_stacks **stacks);
+
 ///////////////////////
 //	  Operations	 //
 ///////////////////////
@@ -80,8 +82,8 @@ void			ft_rrr(t_stacks *stack);
 int				ft_isnumber(const char *str);
 void			swap(int *a, int *b);
 int				average(int num, int *tab);
-int				*copy_array(int *arr, int size);
-void			index_array(int *tab, int *indexarr, int num);
+void			free_str(char **strs);
+void			ft_free_data(t_data **data);
 
 ///////////////////////
 //	  	UTILS2		 //
@@ -89,7 +91,7 @@ void			index_array(int *tab, int *indexarr, int num);
 
 unsigned int	ft_get_nb_strs(char const *s, char c);
 void			new_line_remove(char *line);
-void			ft_freeme(t_stack *stack);
+void			ft_freeme(t_stack **stack);
 void			reverse_tab(int *tab, int size);
 int				my_strcmp(char *strg1, char *strg2);
 
@@ -100,7 +102,7 @@ int				my_strcmp(char *strg1, char *strg2);
 void			printer(t_stack *head);
 void			printtab(int tab[], int size);
 void			*ft_malloc(size_t size);
-void			ft_error(void);
+void			ft_error(char *str);
 void			ft_check_replication(char **av);
 
 ///////////////////////

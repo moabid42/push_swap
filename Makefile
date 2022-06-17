@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/06/16 22:01:56 by moabid           ###   ########.fr        #
+#    Updated: 2022/06/17 16:43:59 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,13 +68,13 @@ $(NAME): $(OBJ_DIR) $(OBJS1)
 	@echo "\033[33m----Compiling PUSH_SWAP...----"
 	@make -C ./libft --silent
 	@$(CC) -o $(NAME) $(INCLUDES) $(OBJS1) $(LIBFT)
-	@echo "\033[32mPUSH_SWAP Compiled! ༺ (\033[31m♥\033[32m_\033[31m♥\033[32m)༻\n"
+	@echo "\033[32mPUSH_SWAP Compiled! ༺ (\033[31m♥\033[32m_\033[31m♥\033[32m)༻\n\033[0m"
 
 $(CHECKER): $(OBJ_DIR_2) $(OBJS2)
 	@echo "\033[33m----Compiling CHECKER...----"
 	@make -C ./libft --silent
 	@$(CC) -o $(CHECKER) $(INCLUDES) $(OBJS2) $(LIBFT)
-	@echo "\033[32mCHECKER Compiled! ༺ (\033[31m♥\033[32m_\033[31m♥\033[32m)༻\n"
+	@echo "\033[32mCHECKER Compiled! ༺ (\033[31m♥\033[32m_\033[31m♥\033[32m)༻\n\033[0m"
 
 bonus: $(CHECKER)
 

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 02:22:55 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 19:47:53 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_init_stacks(t_data *data, t_stacks *stacks)
 {
 	stacks->a = ft_create_stack(data->tab, data->argc);
 	stacks->b = NULL;
+	ft_free_data(&data);
 }
 
 t_stack	*ft_create_stack(int *indexarr, int count)
@@ -45,15 +46,18 @@ char	*parseme(char **argv, int argc)
 {
 	int		i;
 	char	*str;
+	char	*tmp;
 
 	i = 1;
 	str = ft_strdup(" ");
 	while (i < argc)
 	{
 		if (ft_atoi(argv[i]) == 0 && ft_strlen(argv[i]) != 1)
-			ft_error();
-		str = ft_strjoin(str, argv[i]);
-		str = ft_strjoin(str, " ");
+			ft_error(str);
+		tmp = ft_strjoin(str, argv[i]);
+		free(str);
+		str = ft_strjoin(tmp, " ");
+		free(tmp);
 		i++;
 	}
 	return (str);
@@ -67,7 +71,7 @@ void	check_error(char **argv, int argc)
 	while (i < argc)
 	{
 		if (ft_atoi(argv[i]) == 0 && ft_strlen(argv[i]) != 1)
-			ft_error();
+			ft_error(NULL);
 		i++;
 	}
 }
