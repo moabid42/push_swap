@@ -6,7 +6,7 @@
 #    By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 14:21:55 by moabid            #+#    #+#              #
-#    Updated: 2022/06/17 16:43:59 by moabid           ###   ########.fr        #
+#    Updated: 2022/06/17 20:46:52 by moabid           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CHECKER_FILES	=	checker.c parsing.c \
 					presort.c shunking.c solve.c  \
 					sorting_utils.c unshunking.c \
 					utils.c utils2.c utils3.c \
-					stack_utils.c
+					stack_utils.c utils_free.c
 CHECKERS		= 	$(addprefix $(CHECKER_DIR), $(CHECKER_FILES))
 
 SRCS_DIR		=	./src/
@@ -38,7 +38,7 @@ SRCS_FILES		=	main.c parsing.c \
 					presort.c shunking.c solve.c  \
 					sorting_utils.c unshunking.c \
 					utils.c utils2.c utils3.c \
-					stack_utils.c
+					stack_utils.c utils_free.c
 SRCS			= 	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
 OBJ_DIR			=	./obj_mnd/

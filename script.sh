@@ -1,5 +1,5 @@
 #!/bin/bash
-NBR_COUNT=100
+NBR_COUNT=500
 ##
 NBR=$(seq 0 $NBR_COUNT | sort -R | tr '\n' ' ' | rev | cut -c 2- | rev)
 #NBR="0 1 2 3 4 5 6 7 8 9"

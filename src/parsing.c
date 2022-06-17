@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 19:47:53 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 22:16:23 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_init_stacks(t_data *data, t_stacks *stacks)
 {
 	stacks->a = ft_create_stack(data->tab, data->argc);
 	stacks->b = NULL;
-	ft_free_data(&data);
+	ft_free_data(data);
 }
 
 t_stack	*ft_create_stack(int *indexarr, int count)

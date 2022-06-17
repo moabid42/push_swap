@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:32:53 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 19:31:11 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 20:44:22 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,30 +50,4 @@ int	average(int num, int *tab)
 		i++;
 	}
 	return (sum / num);
-}
-
-void	free_str(char **strs)
-{
-	int	i;
-
-	i = 0;
-	while(strs[i] != '\0')
-	{
-		free(strs[i]);
-		i++;
-	}
-	strs = NULL;
-}
-
-void	ft_free_data(t_data **data)
-{
-	free(&(*data)->tab);
-	*data = NULL;
-}
-
-void	ft_free_stacks(t_stacks **stacks)
-{
-	ft_freeme(&(*stacks)->a);
-	ft_freeme(&(*stacks)->b);
-	*stacks = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:21:49 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 17:13:14 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 22:16:31 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_check_replication(char **av)
 	}
 }
 
-void	ft_sanitize(char *str)
+void	ft_sanitize(char *str, t_data *data, t_stacks *stacks)
 {
 	int i;
 
@@ -97,7 +97,11 @@ void	ft_sanitize(char *str)
 	while (str[i] != '\0')
 	{
 		if ((str[i] == '-' || str[i] == '+') && !ft_isdigit(str[i + 1]))
+		{
+			ft_free_stacks(stacks);
+			ft_free_data(data);
 			ft_error(str);
+		}
 		i++;
 	}
 }

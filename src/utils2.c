@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:21:05 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 17:49:47 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 20:48:33 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,6 @@ void	new_line_remove(char *line)
 	while (line[i] != '\n')
 		i++;
 	line[i] = '\0';
-}
-
-void	ft_freeme(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	tmp = *stack;
-	while (tmp)
-	{
-		free(tmp);
-		tmp = tmp->next;
-	}
-	*stack = NULL;
 }
 
 void	reverse_tab(int *tab, int size)

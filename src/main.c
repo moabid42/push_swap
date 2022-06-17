@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:50 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 19:47:49 by moabid           ###   ########.fr       */
+/*   Updated: 2022/06/17 22:29:59 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ int	main(int argc, char **argv)
 	{
 		check_error(argv, argc);
 		str = parseme(argv, argc);
-		ft_sanitize(str);
+		ft_sanitize(str, data, stacks);
 		strs = ft_split(str, ' ');
 		if (!parsing2(data, strs, ft_get_nb_strs(str, ' ')))
 		{
 			free_str(strs);
 			ft_error(str);
 		}
+		ft_init_stacks(data, stacks);
+		solve(stacks);
+		ft_destroy_utils(stacks, str, strs);
 	}
-	ft_init_stacks(data, stacks);
-	solve(stacks);
-	free(str);
-	free_str(strs);
 }
