@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:21:49 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 22:57:20 by moabid           ###   ########.fr       */
+/*   Updated: 2022/07/22 19:36:24 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ void	printer(t_stack *head)
 	printf("\n");
 }
 
-void	printtab(int tab[], int size)
-{
-	int	i;
+// void	printtab(int tab[], int size)
+// {
+// 	int	i;
 
-	i = 0;
-	while (i < size)
-	{
-		printf("%d  ", tab[i]);
-		i++;
-	}
-	printf("\n");
-}
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		printf("%d  ", tab[i]);
+// 		i++;
+// 	}
+// 	printf("\n");
+// }
 
 void	*ft_malloc(size_t size)
 {
@@ -79,7 +79,7 @@ void	ft_check_replication(char **av)
 		{
 			if (j == i)
 				j++;
-			else if ((my_strcmp(replica, av[j]) == 0) 
+			else if ((my_strcmp(replica, av[j]) == 0)
 				|| (ft_atoi(replica) == ft_atoi(av[j])))
 				ft_error(replica);
 			else
@@ -92,7 +92,7 @@ void	ft_check_replication(char **av)
 
 void	ft_sanitize(char *str, t_data *data, t_stacks *stacks)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

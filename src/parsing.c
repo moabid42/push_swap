@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:42:00 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 23:32:33 by moabid           ###   ########.fr       */
+/*   Updated: 2022/07/23 01:12:48 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*parseme(char **argv, int argc)
 	str = ft_strdup(" ");
 	while (i < argc)
 	{
-		if (ft_atoi(argv[i]) == 0 && ft_strlen(argv[i]) != 1)
+		if (ft_atoi(argv[i]) == 0 && !my_strcmp(argv[i], "0"))
 			ft_error(str);
 		tmp = ft_strjoin(str, argv[i]);
 		free(str);
@@ -65,7 +65,7 @@ char	*parseme(char **argv, int argc)
 
 void	check_error(char **argv, int argc)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < argc)

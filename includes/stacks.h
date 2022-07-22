@@ -6,7 +6,7 @@
 /*   By: moabid <moabid@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 13:24:47 by moabid            #+#    #+#             */
-/*   Updated: 2022/06/17 22:22:04 by moabid           ###   ########.fr       */
+/*   Updated: 2022/07/23 00:13:52 by moabid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void			ft_unshanking(t_stacks *stacks);
 void			ft_shanking(t_stacks *stacks, int start, int nbr_ra);
 int				ft_pushme_if_less(t_stacks *stacks, int pivot, int shunk);
 void			ft_b_divide(t_stacks *stacks);
-void			solve(t_stacks *stacks);
+void			solve(t_stacks *stacks, t_data *data);
 int				ft_nbr_shunk(t_stack *a, int shunk);
 int				ft_less_pivot_checker(t_stack *a, int pivot);
 int				ft_get_midlle(t_stack *a, int shunk);
